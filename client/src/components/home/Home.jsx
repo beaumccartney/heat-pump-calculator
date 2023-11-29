@@ -5,12 +5,12 @@ import "../../style/main.scss"
 
 export const Home = () => {
 
-    const [backendTest, setBackentTest] = useState(null);
+    const [backendTest, setBackendTest] = useState(null);
 
     useEffect(() => {
         axios.get('/api', { })
         .then(res => {
-            setBackentTest(res.data)
+            setBackendTest(res.data)
         })
         .catch(err => console.error(err));
 
