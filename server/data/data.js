@@ -4,12 +4,14 @@ const parser = new FormulaParser();
 const ExcelJS = require('exceljs');
 const workbook = new ExcelJS.Workbook();
 
+const excelpath = './data/heat-pump.xlsm';
+
 
 function getCellResult(worksheet, cellLabel) {
     if (worksheet.getCell(cellLabel).formula) {
       return parser.parse(worksheet.getCell(cellLabel).formula).result;
     } else {
-      return worksheet.getCell(cellCoord.label).value;
+      return worksheet.getCell(cellLabel).value;
     }
   }
 
@@ -18,8 +20,9 @@ const manipulateAndPullNewCell = async (val) => {
     let result = null;
 
     try {
-        await workbook.xlsx.readFile('./data/test.xlsx');
-        const sheet = workbook.getWorksheet(1);
+        // await workbook.xlsx.readFile('./data/test.xlsx');
+        await workbook.xlsx.readFile(excelpath);
+        const sheet = workbook.getWorksheet(2);
 
         parser.on('callCellValue', function(cellCoord, done) {
             if (sheet.getCell(cellCoord.label).formula) {
@@ -47,10 +50,11 @@ const manipulateAndPullNewCell = async (val) => {
             }
         });
 
-        sheet.getCell('A1').value = val;
+        sheet.getCell('G4').value = val;
 
-        console.log(getCellResult(sheet, 'C1'));
-        return getCellResult(sheet, 'C1');
+        // await workbook.xlsx.writeFile('./data/test.xlsx');
+        // await workbook.xlsx.writeFile(excelpath);
+        return getCellResult(sheet, 'H12');
     }
     catch(error) {
         console.error("Error", error);
