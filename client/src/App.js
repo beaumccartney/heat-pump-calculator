@@ -5,13 +5,16 @@ import { Home } from './components/home/Home';
 import { Step1 } from './components/calculator/Step1';
 import './App.css'; // Your App specific styles
 
+const STEP1 = 'step1';
+const HOME = 'HOME';
+
 const PageSwitcher = ({ page }) => {
   let PageToRender;
   switch(page) {
-    case 'step1':
+    case STEP1:
       PageToRender = Step1;
       break;
-    case 'home':
+    case HOME:
       PageToRender = Home;
       break;
     default:
@@ -34,8 +37,8 @@ function App() {
       <Sidebar setCurrentPage={setCurrentPage}/>
       <div className="main-content">
         <Header username={username} />
-        <button onClick={() => setCurrentPage('home')}>Home</button>
-        <button onClick={() => setCurrentPage('step1')}>Step 1</button>
+        <button onClick={() => setCurrentPage(HOME)}>Home</button>
+        <button onClick={() => setCurrentPage(STEP1)}>Step 1</button>
         <PageSwitcher page={currentPage}/>
       </div>
     </div>
