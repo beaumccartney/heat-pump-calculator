@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidebar Layout</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .sidebar {
+  height: 100%;
+  width: 80px; /* Width of the sidebar */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white; /* Sidebar color */
+  overflow-x: hidden;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.2); /* Horizontal shadow */
+  text-align: center; /* Center the content horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This will keep the settings icon at the bottom */
+  align-items: center; /* This centers the content horizontally in a flex container */
+  }
+  .sidebar img {
+  display: block;
+  width: 30px; /* Adjust the width of the icons */
+  height: auto; /* Height is adjusted automatically to maintain aspect ratio */
+  margin-bottom: 20px; /* Adjust space between icons */
+  }
+
+/* If you want to remove the margin from the last icon */
+  .sidebar img:last-child {
+  margin-bottom: 27px;
+  }
+  .content {
+    margin-left: 80px; /* Same as sidebar width */
+    padding: 1px 16px;
+    height: 1000px; /* Sample content height */
+  }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <!-- Top icons -->
+  <div>
+    <img src="images/Search-I.png" alt="Search">
+    <img src="images/Chat-I.png" alt="Chat">
+    <img src="images/Dashboard-I.png" alt="Dashboard">
+  </div>
+  <!-- Bottom icon -->
+  <div>
+    <img src="images/Settings-I.png" alt="Settings">
+  </div>
+</div>
+
+<div class="content">
+  <h2>Main Content</h2>
+  <p>This is the main content area of the page.</p>
+</div>
+
+</body>
+</html>
