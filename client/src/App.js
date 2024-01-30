@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Sidebar />
+      <Sidebar setCurrentPage={setCurrentPage}/>
       <div className="main-content">
         <Header username={username} />
         <button onClick={() => setCurrentPage('home')}>Home</button>

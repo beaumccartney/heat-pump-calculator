@@ -11,7 +11,7 @@ import SettingsIconClicked from '../assets/images/SettingsWhite-I.jpg';
 import ChatIcon from '../assets/images/Chat-I.png';
 import ChatIconClicked from '../assets/images/ChatWhite-I.jpg';
 
-function Sidebar() {
+function Sidebar({ setCurrentPage }) {
 
   const [clicked, setClicked] = useState(null);
 
@@ -22,10 +22,20 @@ function Sidebar() {
 
   return (
     <div className="sidebar">
-      <div className={`sidebar-item ${clicked === 'menu' ? 'clicked' : ''}`} onClick={() => handleClick('menu')}>
+      <div className={`sidebar-item ${clicked === 'menu' ? 'clicked' : ''}`} onClick={
+        () => {
+          handleClick('menu')
+          setCurrentPage('home')
+        }
+      }>
         <img src={clicked === 'menu' ? MenuIconClicked : MenuIcon} alt="Menu" />
       </div>
-      <div className={`sidebar-item ${clicked === 'search' ? 'clicked' : ''}`} onClick={() => handleClick('search')}>
+      <div className={`sidebar-item ${clicked === 'search' ? 'clicked' : ''}`} onClick={
+        () => {
+          handleClick('search')
+          setCurrentPage('step1')
+        }
+      }>
         <img src={clicked === 'search' ? SearchIconClicked : SearchIcon} alt="Search" />
       </div>
       <div>
