@@ -25,6 +25,8 @@ function App() {
       <Sidebar />
       <div className="main-content">
         <Header username={username} />
+        <button onclick={() => setCurrentPage('home')}>Home</button>
+        <button onclick={() => setCurrentPage('step1')}>Step1</button>
         {mapPageToComponent(currentPage)}
       </div>
     </div>

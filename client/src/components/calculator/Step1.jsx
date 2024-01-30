@@ -21,7 +21,7 @@ export const Step1 = () => {
         <>
             {/* <h1>{backendTest}</h1> */}
             <div className="step1">
-                  <h1>sakljdf</h1>
+                  <h1>This is the Step1 page</h1>
             </div>
         </>
     )

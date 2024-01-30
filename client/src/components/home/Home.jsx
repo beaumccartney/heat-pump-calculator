@@ -21,7 +21,7 @@ export const Home = () => {
         <>
             {/* <h1>{backendTest}</h1> */}
             <div className="home">
-                
+                This is the home page
             </div>
         </>
     )
