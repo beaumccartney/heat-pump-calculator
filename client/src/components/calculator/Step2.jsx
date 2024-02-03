@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 import "../../style/main.scss"
-import "./Step1.css"
+import "./Step2.css"
 import "./CalcSteps.css"
 
-export const Step1 = () => {
+export const Step2 = () => {
 
     // const [backendTest, setBackendTest] = useState(null);
 
@@ -21,8 +21,8 @@ export const Step1 = () => {
     return (
         <>
             {/* <h1>{backendTest}</h1> */}
-            <div className="step1">
-                <h1>Step 1 - House Type</h1>
+            <div className="step2">
+                <h1>Step 2 - House Year</h1>
             </div>
         </>
     )
