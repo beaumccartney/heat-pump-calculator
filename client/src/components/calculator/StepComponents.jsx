@@ -9,7 +9,7 @@ function changeStep(i) {
 }
 
 //sidebar that shows current step and collapses ones that arent selected
-const StepSidebar = ({step1, step2, step3}) => {
+const StepSidebar = (step1, step2, step3) => {
     return (
         <>
         <button className="collapsable" onClick="changeStep(1)">Step 1</button>
@@ -23,7 +23,7 @@ const StepSidebar = ({step1, step2, step3}) => {
 }
 
 //the selections for an individual step
-const SelectionForm = ({id, optioncards}) => {
+const SelectionForm = (id, optioncards) => {
     return (
         <>
         <form id={id}>
@@ -34,7 +34,7 @@ const SelectionForm = ({id, optioncards}) => {
 }
 
 //a single option for a step's selection
-const OptionCard = ({content, value}) => {
+const OptionCard = (value, content) => {
     return (
         <>
         <label>
