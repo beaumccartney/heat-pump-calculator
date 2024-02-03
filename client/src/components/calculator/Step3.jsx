@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 import "../../style/main.scss"
-import "./Step3.css"
-import "./CalcSteps.css"
+import "./Calculator.css"
 
 export const Step3 = () => {
 
