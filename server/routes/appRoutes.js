@@ -1,19 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
-const data = require('../data/data.js');
+const { spawn } = require('child_process')
 
 router.get('/', (req, res) => {
-
-    data.xlsxManipulation(1200)
-        .then(result => {
-            console.log(`Result is ${result}`);
-            res.send(String(result));
-        })
-        .catch(error => {
-            console.error("Error: ", error)
-        })
+  console.log(req)
+  res.send("Hello")
 });
 
+router.post('/calc', (req, res) => {
+  const jsondata = req.body
+
+  // TODO: robustify
+  // TODO: some kind of lock on the python script
+  const pythonProcess = spawn('python', ['recalc.py', JSON.stringify(jsondata)]);
+  let scriptOutput = '';
+  pythonProcess.stdout.on('data', (data) => {
+    scriptOutput += data.toString();
+  });
+
+  pythonProcess.on("close", () => {
+    const outputData = JSON.parse(scriptOutput);
+    res.json(outputData);
+  });
+});
 
 module.exports = router;
