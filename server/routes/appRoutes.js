@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
-
 const { spawn } = require('child_process')
+
+const Ajv = require("ajv");
+const ajv = new Ajv();
+const schema = require('./api-request-schema');
+const validate = ajv.compile(schema);
+
 
 router.get('/', (req, res) => {
   console.log(req)
@@ -10,6 +15,7 @@ router.get('/', (req, res) => {
 
 router.post('/calc', (req, res) => {
   const jsondata = req.body
+  console.log(validate(jsondata))
 
   // TODO: robustify
   // TODO: some kind of lock on the python script
