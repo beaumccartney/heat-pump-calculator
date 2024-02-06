@@ -11,7 +11,7 @@ import SettingsIconClicked from '../assets/images/SettingsWhite-I.jpg';
 import ChatIcon from '../assets/images/Chat-I.png';
 import ChatIconClicked from '../assets/images/ChatWhite-I.jpg';
 
-function Sidebar({ setCurrentPage }) {
+function Sidebar() {
 
   const [clicked, setClicked] = useState(null);
 
@@ -22,28 +22,27 @@ function Sidebar({ setCurrentPage }) {
 
   return (
     <div className="sidebar">
-      <div className={`sidebar-item ${clicked === 'menu' ? 'clicked' : ''}`} onClick={
-        () => {
-          handleClick('menu')
-          setCurrentPage('home')
-        }
-      }>
+      <div className={`sidebar-item ${clicked === 'menu' ? 'clicked' : ''}`} onClick={() => handleClick('menu')}>
+        <a href='/energy-saving-tips'>
         <img src={clicked === 'menu' ? MenuIconClicked : MenuIcon} alt="Menu" />
+        </a>
       </div>
-      <div className={`sidebar-item ${clicked === 'search' ? 'clicked' : ''}`} onClick={
-        () => {
-          handleClick('search')
-          setCurrentPage('step1')
-        }
-      }>
+      <div className={`sidebar-item ${clicked === 'search' ? 'clicked' : ''}`} onClick={() => handleClick('search')}>
+        <a href='/intro'>
         <img src={clicked === 'search' ? SearchIconClicked : SearchIcon} alt="Search" />
+        </a>
       </div>
       <div>
+        <a href='/info'> 
       <img src={ChatIcon} alt="Chat" />
+      </a>
       </div>
+
       <div className="sidebar-spacer"></div>
-      <div>
-      <img src={SettingsIcon} alt="Settings" />
+      <div> 
+        <a href='/settings'>
+     <img src={SettingsIcon} alt="Settings" />
+     </a>
       </div>
 
       {/*The below code is to be used when we have the icons for white version of these*/}

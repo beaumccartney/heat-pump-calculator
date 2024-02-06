@@ -1,0 +1,297 @@
+.dashboard {
+    background-color: white; 
+    height: 100%;
+    width: 100%; 
+  }
+
+.heading {
+    padding-left: 2em;
+  } 
+
+.card-container {
+    display: flex;
+    align-items: flex-end; 
+    padding-left: 2em;
+    padding-right: 4em;
+    padding-bottom: 1em;
+    gap: 2em;
+}
+
+
+
+.find-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 300px; 
+    max-height: 180px;
+  }
+  
+.find-card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.find-card-title {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+.find-card-description {
+    font-size: 1rem;
+    color: #666;
+  }
+
+
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 250px;
+    background-color: #333; 
+    color: white;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .info-icon {
+    border-radius: 50%; 
+    padding: 10px; 
+    margin-bottom: 20px;
+  }
+  
+  .info-icon img {
+    display: block; 
+    width: 50px; 
+    height: auto; 
+  }
+  
+  .info-text {
+    font-size: 18px; 
+    text-align: center;
+  }
+
+  .faq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 250px;
+    background-color: #E8E8E8; 
+    color: black;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .faq-icon {
+    border-radius: 50%; 
+    padding: 10px; 
+    margin-bottom: 20px;
+  }
+  
+  .faq-icon img {
+    display: block; 
+    width: 50px; 
+    height: auto; 
+  }
+  
+  .faq-text {
+    font-size: 18px; 
+    text-align: center;
+  }
+
+  .previous-searches-title {
+
+  }
+  
+  .previous-searches-box {
+    background: #fff;
+    border-radius: 4px;
+    padding: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .header-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .search-list {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Reset the margin for the list */
+  }
+  
+  .search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+  
+  .address {
+    /* Style for address */
+  }
+  
+  .view-report {
+    background: none; 
+    border: none; 
+    color: black; 
+    padding: 0; 
+    margin: 0; 
+    cursor: pointer;
+    text-decoration: underline; 
+    font-family: inherit; 
+  }
+
+  .view-report:hover,
+  .view-report:focus {
+  text-decoration: none; 
+  outline: none; 
+}
+  
+  .view-all {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+    padding: 0.5em 1em;
+  }
+
+  .chart-container {
+    width: 600px;
+    height: 400px;
+  }
+
+.heading h2,
+.heading p {
+  margin: 0; /* Resets default margin */
+  padding: 0; /* Resets default padding */
+}
+
+.top-heat-pumps {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Adjust width as needed */
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.top-heat-pumps h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.tabs {
+  background-color: white; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  padding: 5px; 
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* Style for each tab button */
+.tab {
+  background-color: #fff; 
+  border: none; 
+  padding: 20px 50px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 5px; 
+  
+}
+
+/* Active tab style */
+.tab.active {
+  background-color: #e0e0e0; 
+
+}
+
+/* Adjust the tab text color */
+.tab,
+.tab.active {
+  color: #000; 
+  text-decoration: none; 
+}
+
+
+.heat-pump-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 2em;
+}
+
+.heat-pump-details {
+  display: flex;
+  justify-content: space-between; /* This will separate the model and price */
+  width: 100%; /* Ensure the container takes up the full width */
+}
+
+.heat-pump-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.model {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.price {
+  color: #007bff; /* The blue color */
+  margin-left: auto; /* Pushes the price to the right */
+  white-space: nowrap; /* Prevents the price from wrapping */
+  font-weight: bold;
+}
+
+
+.data-sections {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.left-section {
+  width: 35%; 
+  padding-left: 2em;
+}
+
+.right-section {
+  width: 33%; 
+  padding-right: 8%;
+  padding-top: 2%;
+}
+
+.chart-container {
+  margin-top: 20px; 
+}
+
+
+
+  
+    
+  

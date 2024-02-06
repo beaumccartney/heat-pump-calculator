@@ -7,6 +7,11 @@
 cd client/ ; npm install
 cd ../server/ ; npm install
 ```
+```bash
+# from root dir of repo
+cd client/ ; npm install html2canvas jspdf
+cd ../server/ ; npm install html2canvas jspdf
+```
 
 ## Run the application
 
