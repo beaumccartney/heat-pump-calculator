@@ -15,7 +15,8 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,3 +37,47 @@
     transform: rotate(360deg);
   }
 }
+
+.app {
+  display: flex;
+  /* height: 100vh; */
+  margin-bottom: 300px;
+
+}
+
+.app-container {
+  display: flex;
+  /* height: 100vh; */
+
+}
+
+.sidebar {
+  width: 100px; 
+
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header { 
+  width: 100%; 
+
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; 
+  height: 100%;  */
+}
+
+.content-container {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
