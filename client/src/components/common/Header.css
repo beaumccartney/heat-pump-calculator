@@ -1,0 +1,31 @@
+.header {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #FFFFFF; /* Or any color that matches your design */
+    /* Add any other styles such as box-shadows or borders as needed */
+  }
+  
+  .header-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .header-profile-name {
+    color: black;
+    font-size: 16px; /* Adjust the font size as needed */
+    margin-right: 8px; /* Space between name and icon */
+  }
+  
+  .header-profile-icon {
+    /* You can replace this with an actual icon or SVG if you have one */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Adjust the icon size as needed */
+    padding-right: 20px; 
+  }
+  
