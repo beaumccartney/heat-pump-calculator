@@ -10,6 +10,9 @@ export const Pages = () => {
                 <Switch>
                     <Route exact path="/"><Home /></Route>
                     {/* All the routes go here */}
+                    <Route exact path="/FAQ"><Home /></Route>
+                    <Route exact path="/EnergySavingTips"><Home /></Route>
+                    
                 </Switch>
             </Router>
         </>

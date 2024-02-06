@@ -1,0 +1,105 @@
+// .Picture {
+//     border: 2px solid rgb(131, 84, 84);
+//     padding: 10px;
+// }
+
+// h1 {
+//     color: rgb(65, 175, 102);
+//     margin-top: -476px;
+//     margin-left: 150px;
+    
+// }
+
+
+///--
+.Heading{
+    position: relative;
+    transform: translateY(180%);
+    margin-left: 40rem;
+    font-weight: bold;
+    font-size: 2.5rem;
+ }
+ .Paragraph-Text{
+     position: relative;
+     margin-left: 40rem;
+     color: rgb(73, 47, 47);
+     transform: translate(0rem, -50rem);
+     
+ }
+ 
+ 
+ 
+ body{
+     background-color: rgba(255, 255, 255, 1)
+ }
+ 
+ .temp-Picture{
+    position: relative; 
+     // background-color: 	rgb(0,0,0);
+     margin-top: 5rem;
+     margin-bottom: 30rem;
+     margin-left: 5rem;
+     
+ }
+ 
+ .Bottom-div{
+    position: relative;
+    
+     height: 40vh; 
+     background: rgba(255, 255, 255, 1);
+    //  margin-top: 10rem;
+    //  margin-bottom: -50px;
+    top: -32rem;
+     margin-left: 3rem;
+     //transform: translate(0px, 30px)
+     
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.10) inset; 
+      border-radius: 5px;
+      
+    // outline:0.01em solid rgba(119, 116, 116, 0.725);
+    
+ 
+ 
+ }
+ 
+ .HeatPumpPicture{
+ position: relative;
+ left: 70%;
+ bottom: 30%;
+ 
+ }
+ 
+ .Bottom-div-Paragraph1{
+ padding-top: 5%;
+ margin: -2rem 32rem 1rem 4rem;
+ color: black;
+ font-size: 2rem;
+ font-Family: 'Outfit';
+ font-weight: '500';
+ text-transform: 'uppercase';
+ //line-height: 2;
+ letter-spacing: 0.75;
+ 
+ }
+ 
+ .Bottom-div-Paragraph2{
+ transform: translateY(-1200%);
+ margin-left: 4rem;
+ color: '#9F9F9F';
+ font-size: 1rem;
+ font-size: 'Red Hat Display';
+ font-weight: '300';
+ text-transform: 'capitalize';
+ //line-height: 1;
+ letter-spacing: 0.75;
+ word-wrap: 'break-word'
+ }
+ 
+ .Bottom-div-button{
+    transform: translateY(-700%);
+     margin-top: 1rem;
+     margin-left: 4rem;
+     width: 8rem;
+     border-radius: 5px;
+ 
+ }
