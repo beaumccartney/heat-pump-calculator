@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results</title>
+<style>
+  @font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-VariableFont_slnt\,wght.ttf') format('ttf'),
+  }
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 100%
+  }
+  .sidebar {
+  height: 100%;
+  width: 80px; /* Width of the sidebar */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white; /* Sidebar color */
+  overflow-x: hidden;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.2); /* Horizontal shadow */
+  text-align: center; /* Center the content horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This will keep the settings icon at the bottom */
+  align-items: center; /* This centers the content horizontally in a flex container */
+  }
+  .sidebar img {
+  display: block;
+  width: 30px; /* Adjust the width of the icons */
+  height: auto; /* Height is adjusted automatically to maintain aspect ratio */
+  margin-bottom: 20px; /* Adjust space between icons */
+  }
+
+/* If you want to remove the margin from the last icon */
+  .sidebar img:last-child {
+  margin-bottom: 27px;
+  }
+  .content {
+    margin-left: 150px; /* Same as sidebar width */
+    padding: 1px 16px;
+    height: 1000px; /* Sample content height */
+  }
+  header h1 {
+    font-size: 40px; /* Standard font size for content */
+    font-weight: 900; /* Normal font weight */
+    color: #000000; /* Standard black color */
+  }
+
+  .container {
+    margin-left: 150px;
+    text-align: left; /* Aligns all content to the center */
+  }
+
+  .item {
+    font-size: 30px; /* Standard font size for content */
+    font-weight: 700;
+    color: #0057FF; /* Blue color */
+    margin: 10px 0; /* Vertical spacing between items */
+    position: relative;
+  }
+  .rectangle {
+    width: 300px;  /* Adjust the width as needed */
+    height: 50px;  /* Adjust the height as needed */
+    background-color: #ffffff; /* Example background color, change as needed */
+    border-radius: 180px; /* Rounded corners */
+    position: absolute; /* Position relative to the parent item */
+    left: 260px; /* Position the rectangle to the right of the item */
+    top: 50%;
+    transform: translateY(-50%); /* Center it vertically relative to the item */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* shadow effect for the rectangle */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  .rectangle span {
+    color: #000000;
+    font-size: 16px;
+  }
+  #homeType {
+    position: absolute;
+    top: 100px;
+    left: 150px;
+  }
+  #homeYear {
+    position: absolute;
+    top: 200px;
+    left: 150px;
+  }
+  #consumption {
+    position: absolute;
+    top: 300px;
+    left: 150px;
+  }
+
+  #rectangle1 {
+    /* Specific adjustments for rectangle 1 */
+  }
+  #rectangle2 {
+    /* Specific adjustments for rectangle 1 */
+  }
+  #rectangle3 {
+    /* Specific adjustments for rectangle 1 */
+  }
+
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <!-- Top icons -->
+  <div>
+    <img src="images/Search-I.png" alt="Search">
+    <img src="images/Chat-I.png" alt="Chat">
+    <img src="images/Dashboard-I.png" alt="Dashboard">
+  </div>
+  <!-- Bottom icon -->
+  <div>
+    <img src="images/Settings-I.png" alt="Settings">
+  </div>
+</div>
+
+<div class="container">
+  <h1>Results</h1>
+    <div id="homeType" class="item">Home Type<div id="rectangle1" class="rectangle"><span>selected home type</span></div></div>
+    <div id="homeYear" class="item">Home Year<div id="rectangle2" class="rectangle"><span>selected home year</span></div></div>
+    <div id="consumption" class="item">Consumption<div id="rectangle3" class="rectangle"><span>selected consumption</span></div></div>
+  </div>
+</div>
+
+
+</body>
+</html>
