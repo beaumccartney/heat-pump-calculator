@@ -19,6 +19,7 @@ router.post('/calc', (req, res) => {
 
   // TODO: robustify
   // TODO: some kind of lock on the python script
+  // i.e. protect the critical section
   const pythonProcess = spawn('python', ['recalc.py', JSON.stringify(jsondata)]);
   let scriptOutput = '';
   pythonProcess.stdout.on('data', (data) => {
