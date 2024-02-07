@@ -6,6 +6,7 @@
 
 .heading {
     padding-left: 2em;
+    padding-top: 1em;
   } 
 
 .card-container {
@@ -26,6 +27,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     max-width: 300px; 
     max-height: 180px;
+    cursor: pointer;
   }
   
 .find-card-content {
@@ -35,7 +37,7 @@
   
 .find-card-title {
     font-size: 1.25rem;
-    color: #333;
+    color: black;
     margin-bottom: 0.5rem;
   }
   
@@ -58,6 +60,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 20px;
     box-sizing: border-box;
+    cursor: pointer;
   }
   
   .info-icon {
@@ -90,6 +93,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 20px;
     box-sizing: border-box;
+    cursor: pointer;
   }
   
   .faq-icon {

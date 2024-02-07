@@ -5,14 +5,20 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import HomePicture from './HomePicture.png';
 import HeatPumpPicture from './HeatPumpPicture.png';
-
+import { useHistory } from 'react-router-dom';
 
 export const IntroPage = () => {
     
     const openNewTab = () => {
         window.open('', '_blank');
     };
+    
+    let history = useHistory();
 
+    const handleClick = () => {
+      history.push('/dashboard');
+    };
+    
     return (
         <>
         <div >
@@ -57,7 +63,7 @@ export const IntroPage = () => {
     <Typography variant="subtitle1" align="left">
       Start Optimizing Your Process
     </Typography>
-    <Button variant="contained"  style={{ backgroundColor: 'black', color: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'}}>
+    <Button onClick={handleClick} variant="contained"  style={{ backgroundColor: 'black', color: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'}}>
       Start
     </Button>
   </Grid>

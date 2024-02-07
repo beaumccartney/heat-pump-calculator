@@ -7,6 +7,7 @@ import infoIcon from '../assets/images/info.png';
 import vectorIcon from '../assets/images/Vector.png';
 import decisionIcon from '../assets/images/Decision.png';
 import { Bar } from 'react-chartjs-2';
+import { useHistory } from 'react-router-dom';
 
 
 import {
@@ -69,8 +70,13 @@ export const Dashboard = () => {
       };
 
       const FindHeatPump = () => {
+        let history = useHistory();
+
+        const handleClick = () => {
+          history.push('/calculator');
+        };
         return (
-          <div className="find-card">
+          <div className="find-card" onClick={handleClick}>
             <div className="find-card-content">
               <h2 className="find-card-title">Find a Heat Pump</h2>
               <p className="find-card-description">Using your housing info & budget, find a suitable heat pump</p>
@@ -91,8 +97,13 @@ export const Dashboard = () => {
       };
 
       const InfoCard = () => {
+        let history = useHistory();
+
+        const handleClick = () => {
+          history.push('/energy-saving-tips');
+        };
         return (
-            <div className="info-card">
+            <div className="info-card" onClick={handleClick}>
             <div className="info-icon">
                 <img src={infoIcon} alt="Info" />
             </div>
@@ -117,8 +128,13 @@ export const Dashboard = () => {
           };
 
           const FAQCard = () => {
+            let history = useHistory();
+
+        const handleClick = () => {
+          history.push('/info');
+        };
             return (
-                <div className="faq-card">
+                <div className="faq-card" onClick={handleClick}>
                 <div className="faq-icon">
                     <img src={decisionIcon} alt="FAQ" />
                 </div>

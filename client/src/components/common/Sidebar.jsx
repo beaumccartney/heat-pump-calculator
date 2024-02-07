@@ -22,40 +22,27 @@ function Sidebar() {
 
   return (
     <div className="sidebar">
-      <div className={`sidebar-item ${clicked === 'menu' ? 'clicked' : ''}`} onClick={() => handleClick('menu')}>
-        <a href='/energy-saving-tips'>
-        <img src={clicked === 'menu' ? MenuIconClicked : MenuIcon} alt="Menu" />
-        </a>
-      </div>
-      <div className={`sidebar-item ${clicked === 'search' ? 'clicked' : ''}`} onClick={() => handleClick('search')}>
-        <a href='/intro'>
-        <img src={clicked === 'search' ? SearchIconClicked : SearchIcon} alt="Search" />
-        </a>
-      </div>
-      <div>
-        <a href='/info'> 
-      <img src={ChatIcon} alt="Chat" />
-      </a>
-      </div>
+  {/* Top Items */}
+  <div className={`sidebar-item ${clicked === 'menu' ? 'clicked' : ''}`} onClick={() => handleClick('menu')}>
+    <a href='/dashboard'>
+      <img src={clicked === 'menu' ? MenuIconClicked : MenuIcon} alt="Menu" />
+    </a>
+  </div>
+  <div className={`sidebar-item ${clicked === 'search' ? 'clicked' : ''}`} onClick={() => handleClick('search')}>
+    <a href='/intro'>
+      <img src={clicked === 'search' ? SearchIconClicked : SearchIcon} alt="Search" />
+    </a>
+  </div>
+  {/* Spacer to push the rest to the bottom */}
+  <div className="sidebar-spacer"></div>
+  {/* Bottom Items */}
+  <div className={`sidebar-item ${clicked === 'settings' ? 'clicked' : ''}`} onClick={() => handleClick('settings')}>
+    <a href = "/settings">
+      <img src={clicked === 'settings' ? SettingsIconClicked : SettingsIcon} alt="Settings" />
+    </a>
+  </div>
+</div>
 
-      <div className="sidebar-spacer"></div>
-      <div> 
-        <a href='/settings'>
-     <img src={SettingsIcon} alt="Settings" />
-     </a>
-      </div>
-
-      {/*The below code is to be used when we have the icons for white version of these*/}
-
-      
-      {/* <div className={`sidebar-item ${clicked === 'chat' ? 'clicked' : ''}`} onClick={() => handleClick('chat')}>
-        <img src={clicked === 'chat' ? ChatIconClicked : ChatIcon} alt="Chat" />
-      </div>
-      <div className="sidebar-spacer"></div>
-      <div className={`sidebar-item ${clicked === 'settings' ? 'clicked' : ''}`} onClick={() => handleClick('settings')}>
-        <img src={clicked === 'settings' ? SettingsIconClicked : SettingsIcon} alt="Settings" />
-      </div> */}
-    </div>
   );
 }
 

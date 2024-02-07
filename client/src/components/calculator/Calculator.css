@@ -1,0 +1,397 @@
+.home-type-selection {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the height to the full viewport height */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    padding: 20px;
+  }
+  .page-container {
+    display: flex;
+    position: relative;
+   
+  }
+  .steps-sidebar {
+    position: absolute;
+    top: 10%; /* Adjust as needed */
+    left: -20%; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Full height of the sidebar */
+  }
+  
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Adjust as needed */
+  }
+
+  .step-container {
+    display: flex;
+    align-items: center; /* Align the circle and text horizontally */
+  }
+
+  .step-container-consumption {
+    display: flex;
+    align-items: center; /* Align the circle and text horizontally */
+    margin-left: 1.5em;
+  }
+  .step-label {
+    margin-left: 8px; /* Add space between the circle and the text */
+    font-size: 24px; /* Set the desired font size */
+    font-weight: bold; /* Adjust the font weight if needed */
+    color: blue;
+    /* More styling as needed */
+  }
+  
+  .step {
+    width: 40px; /* Circle size */
+    height: 40px; /* Circle size */
+    border: 3px solid #007bff; /* Circle border color */
+    border-radius: 50%; /* Makes it round */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Space between circle and line */
+    background-color: #fff; /* Background color of the circle */
+    color: #007bff; /* Color of the number */
+    font-weight: bold;
+    font-size: 20px; /* Size of the number */
+    position: relative; /* Needed for absolute positioning of child elements */
+  }
+  
+  .step span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0; /* Ensure no default margin is applied */
+  }
+  
+  
+  .connector {
+    width: 3px; /* Line thickness */
+    height: 40%; /* Line length */
+    background-color: #007bff; /* Line color */
+    margin-right: 60%;
+  }
+  
+  .step.active {
+    background-color: #007bff; /* Active step background color */
+    color: #fff; /* Active step number color */
+  }
+  
+  .content {
+    margin-left: 80px; /* Adjust this so your content aligns correctly with the sidebar */
+    flex-grow: 1;
+    
+  }
+  .title {
+    position: absolute;
+    top: 40px; /* Adjust this value to match your layout */
+    left: 200px; /* Adjust this value to match your layout, assuming the step number is 60px wide */
+    font-size: 20px;
+    color: #9F9F9F;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0; /* Add margin top and bottom */
+  }
+  
+  .option {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 15%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px; /* Fixed width for options */
+  }
+
+  .option-year {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically and horizontally */
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px; /* Fixed width for options */
+    height: 300px; /* Fixed height for options */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to match the design */
+    transition: box-shadow 0.3s ease; /* Optional: adds a transition effect when hovered */
+    margin-top: 25%;
+  }
+  
+  .option-year:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Optional: changes the shadow on hover */
+  }
+  
+  .label-year {
+    font-size: 44px; /* Increased font size */
+    font-weight: bold; /* Ensure it's bold */
+    margin-bottom: 0.5rem; /* Adjust bottom margin if necessary */
+  }
+
+  .option-efficiency {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically and horizontally */
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px; /* Fixed width for options */
+    height: 300px; /* Fixed height for options */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to match the design */
+    transition: box-shadow 0.3s ease; /* Optional: adds a transition effect when hovered */
+    margin-top: 25%;
+  }
+  
+  .option-efficiency:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Optional: changes the shadow on hover */
+  }
+  
+  .label-efficiency {
+    font-size: 44px; /* Increased font size */
+    font-weight: bold; /* Ensure it's bold */
+    margin-bottom: 0.5rem; /* Adjust bottom margin if necessary */
+  }
+  
+  .option .image {
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensures the image is scaled correctly within the element bounds */
+  }
+  
+  
+  .label, .size {
+    text-align: center;
+  }
+  
+  .custom-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Shorten the width of the custom home size input */
+    margin: 20px 0; /* Add margin top and bottom */
+    margin-left: 17%;
+  }
+  
+  .custom-size label {
+    margin-right: 10px;
+  }
+  
+  .custom-size input {
+    flex-grow: 1;
+    margin: 0 10px;
+  }
+  
+  /* Additional styling to make sure the title and the content below are separated */
+  .content-below-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+
+
+
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('ttf'),
+    }
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 100%
+    }
+  
+    .content {
+      margin-left: 10px; /* Same as sidebar width */
+      padding: 1px 16px;
+      height: 800px; /* Sample content height */
+    }
+    header h1 {
+      font-size: 40px; /* Standard font size for content */
+      font-weight: 750; /* Normal font weight */
+      color: #000000; /* Standard black color */
+      font-family: 'Inter', sans-serif;
+    }
+  
+    .container {
+      margin-top: 3vh;
+      margin-left: 3wh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Keeps containers aligned to the start */
+      margin-left: 100px; /* Adjust this value to create space from the sidebar */
+      padding-top: 100px; /* Adjust this value to create space below the header */
+    }
+    .image {
+      max-width: 100%; /* This ensures the image is responsive and does not overflow its container */
+      height: auto; /* This keeps the image aspect ratio intact */
+      /* Additional styling for the images */
+    }
+  
+  .item-container {
+    margin-left: 3wh;
+    display: flex;
+    align-items: center; /* Vertically aligns items in the center */
+    margin-bottom: 20px; /* Space between each item-container */
+  }
+  
+  .item {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0057FF;
+    width: 200px; /* Fixed width for all items */
+    margin-right: 20px; /* Space between item and rectangle */
+  }
+  
+  .rectangle {
+    width: 400px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 180px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  
+    .rectangle span {
+      color: #000000;
+      font-size: 16px;
+    }
+    #homeType {
+      position: absolute;
+      top: 100px;
+      left: 150px;
+    }
+    #homeYear {
+      position: absolute;
+      top: 200px;
+      left: 150px;
+    }
+    #consumption {
+      position: absolute;
+      top: 300px;
+      left: 150px;
+    }
+  
+    #rectangle1 {
+      /* Specific adjustments for rectangle 1 */
+    }
+    #rectangle2 {
+      /* Specific adjustments for rectangle 1 */
+    }
+    #rectangle3 {
+      /* Specific adjustments for rectangle 1 */
+    }
+    .card-stack {
+      position: absolute;
+      margin-top: 0px;
+      margin-left: 900px;
+      width: 500px; /* Adjust as needed */
+      height: 650px; /* Adjust as needed */
+      cursor: pointer;
+    }
+  
+    .card {
+      position: absolute;
+      width: 500px;
+      height: 100%;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+    h2 {
+      color: #000000;
+      font-size: 1.5rem; /* Adjust size as needed */
+      margin-bottom: 25px;
+      /* Additional styling as needed */
+    }
+    
+    .data-point {
+      /* Stack the label and the bar + value vertically */
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 45px; /* Space between data points */
+    }
+    
+    .data-label {
+      /* Style for the label */
+      margin-bottom: 8px; /* Space between the label and the bar */
+    }
+    
+    .data-bar-container {
+      /* Container for the bar and value */
+      position: relative; /* Needed for absolute positioning of the value */
+    }
+    
+    .data-bar {
+      /* Visual representation of the value (the bar) */
+      background-color: blue; /* Example color, adjust as needed */
+      height: 40px; /* Height of the bar */
+      border-radius: 180px; /* Rounded corners for the bar */
+      align-items: left; /* Center the value vertically */
+      justify-content: left; /* Center the value horizontally */
+  
+    }
+    
+    .data-value {
+      position: absolute; /* Position the value inside the bar */
+      top: 50%; /* Center vertically */
+      left: 35px; /* Start at the horizontal center of the bar */
+      transform: translate(-50%, -50%); /* Offset both horizontally and vertically */
+      color: white; /* Example text color for contrast */
+      /* ...other styles for the value... */
+    }
+  
+    .image-buttons button {
+      background-size: cover;
+      background-position: center;
+      margin-top: 9%;
+      margin-left: 50px;
+      width: 200px; /* Adjust as needed */
+      height: 200px; /* Adjust as needed */
+      border: none;
+      cursor: pointer;
+  }
+  
+  /* Additional styling for buttons as needed */
+  
+    
+  
+  
+    #card1 { z-index: 3; }
+    #card2 { z-index: 2; transform: translateY(10px); }
+    #card3 { z-index: 1; transform: translateY(20px); }
+  
+  
+  

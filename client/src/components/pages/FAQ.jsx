@@ -6,20 +6,20 @@ import FAQPicture from './FAQPicture.jpg'
 import { Accordion, AccordionSummary, AccordionDetails, Container, Typography, Grid } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-
 export const FAQ = () => {
  
 
     return (
     <>
+    <div style={{paddingLeft: "2em"}}>
     <h2 id='Heading'>Frequently Asked Questions</h2>
     <p className='ParagraphText'> Welcome to our FAQ page! Find quick answers to common queries below.</p>
-    <br></br>
+    <br></br></div>
     {/* <Typography variant="h2">Frequently Asked Questions</Typography>
       <Typography variant="body1">Welcome to our FAQ page! Find quick answers to common queries below.</Typography>
        */}
     <Container>
-    <Container style={{ display: 'flex', justifyContent: 'center' }}>
+    <Container style={{ display: 'flex', justifyContent: 'center', paddingBottom: "2em" }}>
   <img src={FAQPicture} alt="FAQ Picture" style={{ width: '100%', maxWidth: '700px', height: 'auto' }} />
 </Container>
 
