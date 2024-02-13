@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { spawn } = require('child_process')
+const { execSync } = require('child_process')
 
 const Ajv = require("ajv");
 const ajv = new Ajv();
@@ -14,22 +14,24 @@ router.get('/', (req, res) => {
 });
 
 router.post('/calc', (req, res) => {
-  const jsondata = req.body
-  console.log(validate(jsondata))
+  const recalcOutput = recalc(req.body, 'prototype.py');
 
-  // TODO: robustify
-  // TODO: some kind of lock on the python script
-  // i.e. protect the critical section
-  const excel_recalc_python_process = spawn('python', ['prototype.py', JSON.stringify(jsondata)]);
-  let scriptOutput = '';
-  excel_recalc_python_process.stdout.on('data', (data) => {
-    scriptOutput += data.toString();
-  });
-
-  excel_recalc_python_process.on("close", () => {
-    const outputData = JSON.parse(scriptOutput);
-    res.json(outputData);
-  });
+  const outputData = JSON.parse(recalcOutput);
+  res.json(outputData);
 });
+
+router.post('/calc_table', (req, res) => {
+  const recalcOutput = recalc(req.body, 'csv_table.py');
+
+  res.setHeader('Content-Type', 'text/csv');
+  res.send(recalcOutput);
+});
+
+function recalc(input_json, script) {
+  console.log(validate(input_json))
+
+  const command_string = `python ${script} '${JSON.stringify(input_json)}'`
+  return execSync(command_string);
+}
 
 module.exports = router;
