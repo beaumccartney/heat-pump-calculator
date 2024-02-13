@@ -20,7 +20,7 @@ router.post('/calc', (req, res) => {
   // TODO: robustify
   // TODO: some kind of lock on the python script
   // i.e. protect the critical section
-  const excel_recalc_python_process = spawn('python', ['recalc.py', JSON.stringify(jsondata)]);
+  const excel_recalc_python_process = spawn('python', ['prototype.py', JSON.stringify(jsondata)]);
   let scriptOutput = '';
   excel_recalc_python_process.stdout.on('data', (data) => {
     scriptOutput += data.toString();
