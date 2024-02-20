@@ -6,7 +6,7 @@ from recalc import recalc
 output_sheet = recalc()
 
 # pull the whole table into a csv
-table = output_sheet.range('D2:L6').value
+table = output_sheet.range('D2:J8').value
 
 # Writing to CSV
 writer = csv.writer(sys.stdout)

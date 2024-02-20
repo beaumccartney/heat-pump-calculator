@@ -14,13 +14,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/calc', (req, res) => {
-  const recalcOutput = recalc(req.body, 'prototype.py');
-
-  const outputData = JSON.parse(recalcOutput);
-  res.json(outputData);
-});
-
-router.post('/calc_table', (req, res) => {
   const recalcOutput = recalc(req.body, 'csv_table.py');
 
   res.setHeader('Content-Type', 'text/csv');
