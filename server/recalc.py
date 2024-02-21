@@ -8,11 +8,22 @@ def recalc():
     input_sheet = excelsheet_handle.sheets['User Inputs']
 
     # NOTE: first argument must a json containing the inputs
-    inputs = json.loads(sys.argv[1])
-    for cell, input in zip([ 'G2', 'G4', 'G5', 'G6', ], inputs):
-        input_sheet[cell].value = input
+    input_json = json.loads(sys.argv[1])
+    for (cell, json_key) in (
+        ('G2', 'buildYear',                  ),
+        ('G4', 'sizeOfHome',                 ),
+        ('G5', 'existingFurnaceEfficiency',  ),
+        ('G6', 'heatPumpSelector',           ),
+        ('N3', 'HEFUpgradeEstimate',         ),
+        ('N4', 'heatPumpHEFInstallEstimate', ),
+        ('N5', 'solarPVInstallEstimate',     ),
+        ('N6', 'costOfNaturalGas',           ),
+        ('N7', 'costOfElectricity',          ),
+    ):
+        input_sheet[cell].value = input_json[json_key]
 
     excelsheet_handle.app.calculate()
 
     output_sheet = excelsheet_handle.sheets['Outputs']
     return output_sheet
+
