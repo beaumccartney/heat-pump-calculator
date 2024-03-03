@@ -1,151 +1,136 @@
 
-import React from 'react';
+
 import './EnergySavingTips.scss';
-import ReactDOM from 'react-dom/client';
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import PicOne from './One.jpg'
+
+
 import EnergySavingTipsPicture from './EnergySavingTipsPicture.jpg' 
-import Container from 'react-bootstrap/esm/Container';
+import EnergySavingTipsPic1 from './EnergySavingTipsPic1.png' 
+import EnergySavingTipsPic2 from './EnergySavingTipsPic2.png' 
+import EnergySavingTipsPic3 from './EnergySavingTipsPic3.png'
+import EnergySavingTipsPic4 from './EnergySavingTipsPic4.png'  
+
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
 export const EnergySavingTips = () => {
 //  https://forum.freecodecamp.org/t/centering-bootstrap-cards/489829/3
 // https://react-bootstrap.netlify.app/docs/components/cards#link
 
     return (
         
-//        <div>
-//        <h2>header</h2>
-//         <Container className='d-flex justify-content-center vh-100 align-items-center'>
-//         <CardGroup  >
-//         <Card className='card text-white bg-dark mb-3" style="max-width: 18rem;'>
-//           <Card.Img variant="top" src={FAQPicture} />
-//           <Card.Body >
-//             <Card.Title  >Card title</Card.Title>
-//             <Card.Text >
-//               This is a wider card with supporting text below as a natural lead-in
-//               to additional content. This content is a little bit longer.
-//             </Card.Text>
-//           </Card.Body>
-//         </Card>
-//         <Card>
-//           <Card.Img variant="top" src="holder.js/100px160" />
-//           <Card.Body>
-//             <Card.Title>Card title</Card.Title>
-//             <Card.Text>
-//               This card has supporting text below as a natural lead-in to
-//               additional content.{' '}
-//             </Card.Text>
-//           </Card.Body>
-          
-//         </Card>
-//         <Card>
-//           <Card.Img variant="top" src="holder.js/100px160" />
-//           <Card.Body>
-//             <Card.Title>Card title</Card.Title>
-//             <Card.Text>
-//               This is a wider card with supporting text below as a natural lead-in
-//               to additional content. This card has even longer content than the
-//               first to show that equal height action.
-//             </Card.Text>
-//           </Card.Body>
-//         </Card>
-//       </CardGroup>
-
-//       </Container>   
-
-// </div>    
+    
 <>
 {/* https://reintech.io/blog/creating-a-responsive-card-layout-with-css */}
 
+{/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_cards */}
+{/* https://www.youtube.com/watch?v=eYGIIc2FOVI */}
 <h2 id='Heading'>Energy Saving Tips</h2>
     <p className='ParagraphText'> Welcome to our Energy Saving Tips page! Find quick Energy Saving Tips below.</p>
     <br></br>
+    
     {<img src = {EnergySavingTipsPicture} className = 'EnergySavingTipsPicture' alt="EnergySavingTipsPicture" ></img>}
-
-<div class="cards">
-
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text Card text Card text Card textCard textCard textCard textCard text</p>
-    </div>
-</div>
-
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
+<Grid
+ container
+ spacing = {4}
+ 
+// style={{ justifyContent: 'flex-end', paddingLeft: '10px' }}
+style={{ justifyContent: 'Center' }}
 
 
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
+>
+      <Grid item xs = {12} md = {2.4} lg ={2}>
+    <Card sx={{ maxWidth: 345, height: '600px' }}>
+      
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="150"
+        image={EnergySavingTipsPic1}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        Heating your Home in Cold Temperatures 
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Heat pumps can keep your home warm even in subzero temperatures. Contrary to popular belief, they work efficiently in cold climates. 
 
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
+In Calgary, heating your home with an air-source heat pump below 10°C may lead to higher utility bills compared to using a high-efficiency natural gas furnace. This is because the blended rate of electricity is currently higher than natural gas per unit of energy consumed.  
+        </Typography>
+      </CardContent>
+    
+    </Card>
+</Grid>
+    <Grid item xs = {12} md = {2.4} lg ={2}>
+    <Card sx={{ maxWidth: 345, height: '600px'  }}>
+      
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="150"
+        image={EnergySavingTipsPic2}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        Pairing your Heat Pump with a High Efficiency Furnace 
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Unless your home has been built with thick interior and exterior insulation and has been professionally air sealed, it is wise to ensure your home has a source of natural gas heating for those very cold winter days and nights.  
+        </Typography>
+      </CardContent>
+    
+    </Card>
+</Grid>
 
+<Grid item xs = {12} md = {2.4} lg ={2}>
+    <Card sx={{ maxWidth: 345, height: '600px'  }}>
+      
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="150"
+        image={EnergySavingTipsPic3}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        Pairing your Heat Pump with a Solar Photovoltaic System 
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Installing a solar PV system along with your heat pump will allow you to generate electricity credits that you can use in the winter to offset the cost of heating your home with an air-source heat pump.   
 
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
+This will allow you to operate your heat pump at lower exterior temperatures and at a lower cost.  
+        </Typography>
+      </CardContent>
+    
+    </Card>
+</Grid>
 
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
+<Grid item xs = {12} md = {2.4} lg ={2}>
+    <Card sx={{ maxWidth: 345, height: '600px'  }}>
+      
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="150"
+        image={EnergySavingTipsPic4}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        GHG Emissions from Heat Pumps and Furnaces 
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        60% of Alberta’s electricity is generated by natural gas power plants. Because of this, the GHG emissions created by a heat pump can be more than emissions created by a natural gas furnace at lower temperatures. As it gets colder outside, the heat pump must work harder to create heat, reducing its efficiency, and causing it to draw more electricity from the grid.  
 
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
+As cleaner sources of electricity are added to Alberta’s electricity system such as wind, solar, hydro, and nuclear, the GHG emissions created by your heat pump will go down.  
+        </Typography>
+      </CardContent>
+    
+    </Card>
+</Grid>
 
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
-
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
-
-<div class="card">
-{<img src = {PicOne} className = 'PicOne' alt="One" ></img>}
-    <div class="card__content">
-        <h2 class="card__title">Card title</h2>
-        <p class="card__text">Card text</p>
-    </div>
-</div>
-</div>
+    </Grid>
 </>
 
 );
