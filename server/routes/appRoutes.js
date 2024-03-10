@@ -6,13 +6,13 @@ const { body, validationResult } = require('express-validator')
 const input_schema = [
   body('buildYear')                 .isIn(["<1949", "1950-1959", "1960-1981", "1982-1990", "1991-1997", "1998-2006", "2007-2014", "2015-present"]),
   body('sizeOfHome')                .isInt({ min: 0 }),
-  body('existingFurnaceEfficiency') .isIn(["I don't know", 0.8, 0.92, 0.97]),
-  body('heatPumpSelector')          .isIn(["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]),
+  body('existingFurnaceEfficiency') .default("I don't know").isIn(["I don't know", 0.8, 0.92, 0.97]),
+  body('heatPumpSelector')          .default("Unit 1").isIn(["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]),
 
   // advanced options with default values taken from the excel sheet
-  body('HEFUpgradeEstimate')        .default(5500)     .isInt({ min: 0 }),
+  body('HEFUpgradeEstimate')        .default(8000)     .isInt({ min: 0 }),
   body('heatPumpHEFInstallEstimate').default(10000)    .isInt({ min: 0 }),
-  body('solarPVInstallEstimate')    .default(6000)     .isInt({ min: 0 }),
+  body('solarPVInstallEstimate')    .default(12000)     .isInt({ min: 0 }),
   body('costOfNaturalGas')          .default("Current").isIn(["High","Current","Low"]),
   body('costOfElectricity')         .default("Current").isIn(["High","Current","Low"]),
 ]
