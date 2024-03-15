@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { execSync } = require('child_process')
+const { spawnSync } = require('child_process')
 const { body, validationResult } = require('express-validator')
 
 const input_schema = [
@@ -35,8 +35,11 @@ router.post('/calc', input_schema, (req, res) => {
 });
 
 function recalc(input_json, script) {
-  const command_string = `python ${script} '${JSON.stringify(input_json)}'`
-  return execSync(command_string);
+  return spawnSync(
+        'python',
+        [script, JSON.stringify(input_json)],
+        { encoding: 'utf-8' }
+    ).stdout
 }
 
 module.exports = router;
