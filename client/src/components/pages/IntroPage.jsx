@@ -7,6 +7,9 @@ import HomePicture from './HomePicture.png';
 import HeatPumpPicture from './HeatPumpPicture.png';
 import { useHistory } from 'react-router-dom';
 
+import axios from 'axios';
+import Papa from 'papaparse';
+
 export const IntroPage = () => {
     
     const openNewTab = () => {
@@ -19,6 +22,32 @@ export const IntroPage = () => {
       history.push('/dashboard');
     };
     
+    const [data, setData] = React.useState(null);
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // input json to the api
+                // schema is defined in server/appRoutes.js
+                const inputs = {
+                    buildYear: "1960-1981",
+                    sizeOfHome: 1500,
+                }
+                const response = await axios.post('http://localhost:3001/api/calc', inputs)
+
+                // parse the csv data
+                const config = {} // adjust however works best to parse the data
+                const parsedCsv = Papa.parse(response.data, config);
+                setData(parsedCsv.data);
+                console.log(data)
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, [data])
+
+
     return (
         <>
         <div >
