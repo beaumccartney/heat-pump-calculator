@@ -12,7 +12,7 @@ const input_schema = [
   // advanced options with default values taken from the excel sheet
   body('HEFUpgradeEstimate')        .default(8000)     .isInt({ min: 0 }),
   body('heatPumpHEFInstallEstimate').default(10000)    .isInt({ min: 0 }),
-  body('solarPVInstallEstimate')    .default(12000)     .isInt({ min: 0 }),
+  body('solarPVInstallEstimate')    .default(12000)    .isInt({ min: 0 }),
   body('costOfNaturalGas')          .default("Current").isIn(["High","Current","Low"]),
   body('costOfElectricity')         .default("Current").isIn(["High","Current","Low"]),
 ]
