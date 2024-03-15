@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "poetry run nodemon server.js"
+    "start": "poetry run nodemon server.js",
+    "dev": "poetry run nodemon server.js"
   },
   "keywords": [],
   "author": "",
