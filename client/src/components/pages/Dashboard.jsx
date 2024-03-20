@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 import "../../style/main.scss"
-import "./Dashboard.css"
+import "../dashboard/Dashboard.css"
 import infoIcon from '../assets/images/info.png';
 import vectorIcon from '../assets/images/Vector.png';
 import decisionIcon from '../assets/images/Decision.png';

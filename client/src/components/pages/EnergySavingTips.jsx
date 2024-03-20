@@ -1,13 +1,13 @@
 
 
-import './EnergySavingTips.scss';
+import '../energySavingTips/EnergySavingTips.scss';
 
 
-import EnergySavingTipsPicture from './EnergySavingTipsPicture.jpg' 
-import EnergySavingTipsPic1 from './EnergySavingTipsPic1.png' 
-import EnergySavingTipsPic2 from './EnergySavingTipsPic2.png' 
-import EnergySavingTipsPic3 from './EnergySavingTipsPic3.png'
-import EnergySavingTipsPic4 from './EnergySavingTipsPic4.png'  
+import EnergySavingTipsPicture from '../assets/images/EnergySavingTipsPicture.jpg' 
+import EnergySavingTipsPic1 from '../assets/images/EnergySavingTipsPic1.png' 
+import EnergySavingTipsPic2 from '../assets/images/EnergySavingTipsPic2.png' 
+import EnergySavingTipsPic3 from '../assets/images/EnergySavingTipsPic3.png'
+import EnergySavingTipsPic4 from '../assets/images/EnergySavingTipsPic4.png'  
 
 import * as React from 'react';
 import Card from '@mui/material/Card';

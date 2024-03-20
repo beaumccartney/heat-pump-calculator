@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './FAQ.scss';
+import '../FAQ/FAQ.scss';
 import ReactDOM from 'react-dom/client';
-import FAQPicture from './FAQPicture.jpg'
+import FAQPicture from '../assets/images/FAQPicture.jpg'
 import { Accordion, AccordionSummary, AccordionDetails, Container, Typography, Grid } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 

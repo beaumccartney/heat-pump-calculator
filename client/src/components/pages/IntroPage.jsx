@@ -3,8 +3,8 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import HomePicture from './HomePicture.png';
-import HeatPumpPicture from './HeatPumpPicture.png';
+import HomePicture from '../assets/images/HomePicture.png';
+import HeatPumpPicture from '../assets/images/HeatPumpPicture.png';
 import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
@@ -75,9 +75,9 @@ export const IntroPage = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // Add shadow
-            border: '2px solid #ccc', // Add border
-            borderRadius: '8px', // Add border-radius for rounded corners
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', 
+            border: '2px solid #ccc', 
+            borderRadius: '8px', 
             marginBottom: '50px',
             marginTop: '100px'
            

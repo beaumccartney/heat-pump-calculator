@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Typography, TextField, Button, Grid, Paper,Avatar } from '@mui/material';
-import avatar from './avatar.webp';
+import avatar from '../assets/images/avatar.webp';
 
 export const Settings = () => {
  
