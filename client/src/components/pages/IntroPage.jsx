@@ -1,56 +1,59 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
+import React from 'react'; // Importing React library for building UI components
+import Button from '@mui/material/Button'; // Importing React library for building UI components
+import Container from '@mui/material/Container'; 
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import HomePicture from '../assets/images/HomePicture.png';
-import HeatPumpPicture from '../assets/images/HeatPumpPicture.png';
-import { useHistory } from 'react-router-dom';
+import HomePicture from '../assets/images/HomePicture.png'; // Importing image for Home
+import HeatPumpPicture from '../assets/images/HeatPumpPicture.png'; 
+import { useHistory } from 'react-router-dom';  // Importing useHistory hook from react-router-dom for navigating
 
-import axios from 'axios';
-import Papa from 'papaparse';
+//import axios from 'axios';  // Importing useHistory hook from react-router-dom for navigating
+// import Papa from 'papaparse';
 
 export const IntroPage = () => {
     
-    const openNewTab = () => {
-        window.open('', '_blank');
-    };
-    
+    //<--> const openNewTab = () => {
+    //     window.open('', '_blank');
+    // };
+
+    // Initializing useHistory hook for navigation
     let history = useHistory();
 
     const handleClick = () => {
+      // Navigating to '/dashboard' route
       history.push('/dashboard');
     };
     
-    const [data, setData] = React.useState(null);
+    // const [data, setData] = React.useState(null);
 
-    React.useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // input json to the api
-                // schema is defined in server/appRoutes.js
-                const inputs = {
-                    buildYear: "1960-1981",
-                    sizeOfHome: 1500,
-                }
-                const response = await axios.post('http://localhost:3001/api/calc', inputs)
+    // React.useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             // input json to the api
+    //             // schema is defined in server/appRoutes.js
+    //             const inputs = {
+    //                 buildYear: "1960-1981",
+    //                 sizeOfHome: 1500,
+    //             }
+    //             const response = await axios.post('http://localhost:3001/api/calc', inputs)
 
-                // parse the csv data
-                const config = {} // adjust however works best to parse the data
-                const parsedCsv = Papa.parse(response.data, config);
-                setData(parsedCsv.data);
-                console.log(data)
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-        fetchData();
-    }, [data])
+    //             // parse the csv data
+    //             const config = {} // adjust however works best to parse the data
+    //             const parsedCsv = Papa.parse(response.data, config);
+    //             setData(parsedCsv.data);
+    //             console.log(data)
+    //         } catch (error) {
+    //             console.error('Error fetching data:', error);
+    //         }
+    //     };
+    //     fetchData();
+    // }, [data])
 
 
     return (
         <>
         <div >
+        {/* Material UI Container component */}
           <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
             <Grid container spacing={2} alignItems="right">
               <Grid item xs={12} sm={6} style={{ textAlign: 'right' }}>
@@ -58,18 +61,19 @@ export const IntroPage = () => {
               </Grid>
               {/* Right side with text */}
               <Grid item xs={12} sm={6} >
+                {/* Material UI Typography component */}
                 <Typography  variant="h4" align="left" gutterBottom   >
                   HOW HEAT PUMPS <br /> PAY OFF
                 </Typography>
                 <Typography variant="body1" align="left" paragraph>
                   Heat pumps can be a cost-effective way to heat and cool homes while reducing climate pollution.
                   <br />
-                  This interactive tool allows you to compare the cost of heat pumps to other home heating and cooling options in five cities across Canada.
+                  This interactive tool allows you to compare the cost of heat pumps to other home heating and cooling options.
                 </Typography>
               </Grid>
             </Grid>
           </Container>
-    
+    {/* Styles for Container */}
           <Container sx={{
             mt: 5,
             display: 'flex',
@@ -92,7 +96,8 @@ export const IntroPage = () => {
     <Typography variant="subtitle1" align="left">
       Start Optimizing Your Process
     </Typography>
-    <Button onClick={handleClick} variant="contained"  style={{ backgroundColor: 'black', color: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'}}>
+    {/* Button  */}
+    <Button onClick={handleClick} variant="contained"  style={{ backgroundColor: 'black', marginTop: '30px', color: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'}}>
       Start
     </Button>
   </Grid>
