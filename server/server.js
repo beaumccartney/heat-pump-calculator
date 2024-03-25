@@ -1,3 +1,10 @@
+/*
+ * server.js
+ *
+ * This file sets up a simple express server, pulling in routes defined in
+ * appRoutes.js. It prefixes each of the routes with /api.
+ */
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
