@@ -2,300 +2,283 @@
     background-color: white; 
     height: 100%;
     width: 100%; 
+    margin-bottom: 2em;
   }
 
-.heading {
-    padding-left: 2em;
-    padding-top: 1em;
-  } 
 
-.card-container {
-    display: flex;
-    align-items: flex-end; 
-    padding-left: 2em;
-    padding-right: 4em;
-    padding-bottom: 1em;
-    gap: 2em;
+
+/* AHMEDS STYLING */
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
 }
 
+.info-card-container {
+  display: flex;
+  flex-direction: row;
 
-
-.find-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    max-width: 300px; 
-    max-height: 180px;
-    cursor: pointer;
-  }
-  
-.find-card-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-.find-card-title {
-    font-size: 1.25rem;
-    color: black;
-    margin-bottom: 0.5rem;
-  }
-  
-.find-card-description {
-    font-size: 1rem;
-    color: #666;
-  }
-
-
-  .info-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    height: 250px;
-    background-color: #333; 
-    color: white;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-  
-  .info-icon {
-    border-radius: 50%; 
-    padding: 10px; 
-    margin-bottom: 20px;
-  }
-  
-  .info-icon img {
-    display: block; 
-    width: 50px; 
-    height: auto; 
-  }
-  
-  .info-text {
-    font-size: 18px; 
-    text-align: center;
-  }
-
-  .faq-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    height: 250px;
-    background-color: #E8E8E8; 
-    color: black;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-  
-  .faq-icon {
-    border-radius: 50%; 
-    padding: 10px; 
-    margin-bottom: 20px;
-  }
-  
-  .faq-icon img {
-    display: block; 
-    width: 50px; 
-    height: auto; 
-  }
-  
-  .faq-text {
-    font-size: 18px; 
-    text-align: center;
-  }
-
-  .previous-searches-title {
-
-  }
-  
-  .previous-searches-box {
-    background: #fff;
-    border-radius: 4px;
-    padding: 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-  }
-  
-  .header-search {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1em;
-  }
-  
-  .search-list {
-    list-style: none;
-    padding: 0;
-    margin: 0; /* Reset the margin for the list */
-  }
-  
-  .search-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5em;
-  }
-  
-  .address {
-    /* Style for address */
-  }
-  
-  .view-report {
-    background: none; 
-    border: none; 
-    color: black; 
-    padding: 0; 
-    margin: 0; 
-    cursor: pointer;
-    text-decoration: underline; 
-    font-family: inherit; 
-  }
-
-  .view-report:hover,
-  .view-report:focus {
-  text-decoration: none; 
-  outline: none; 
-}
-  
-  .view-all {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #007bff;
-    padding: 0.5em 1em;
-  }
-
-  .chart-container {
-    width: 600px;
-    height: 400px;
-  }
-
-.heading h2,
-.heading p {
-  margin: 0; /* Resets default margin */
-  padding: 0; /* Resets default padding */
+  column-gap: 1em;
 }
 
-.top-heat-pumps {
-  background-color: #fff;
+.info-card-content {
+  width: 16em;
+  height: 11em;
+
+  padding: .25em 1em;
+
+  border: 1px solid rgba(136, 136, 136, 0.266);
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Adjust width as needed */
-  margin: auto;
-  box-sizing: border-box;
-}
 
-.top-heat-pumps h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-
-.tabs {
-  background-color: white; 
-  border: 1px solid #ccc; 
-  border-radius: 10px; 
-  padding: 5px; 
-  display: flex; 
-  justify-content: center; 
-  gap: 10px; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-}
-
-/* Style for each tab button */
-.tab {
-  background-color: #fff; 
-  border: none; 
-  padding: 20px 50px;
-  margin: 0;
   cursor: pointer;
-  border-radius: 5px; 
-  
 }
 
-/* Active tab style */
-.tab.active {
-  background-color: #e0e0e0; 
+.find-card-title {
+  font-size: 1.15rem;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+
+.find-card-description {
+  font-size: .85rem;
+  color: #666;
+}
+
+.review-images {
+  display: flex;
+  flex-direction: row;
+  column-gap: -1.5em;
+
+  margin-top: 1.5em;
+}
+
+.review-images img {
+  width: 35px;
+  margin-left: -.5em;
+}
+
+.review-images img:nth-child(1) {
+  margin-left: 0em;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+    
+.card-container-info {
+  display: flex ;
+  flex-direction: row ;
+  align-items: baseline;
+
+  column-gap: .5em;
+}
+
+.card-container-info .card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  text-align: center;
+  background: #E8E8E8;
+  height: 12.5em;
+  width: 10.5em;
+  padding: 1em;
+
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.card-container-info img {
+  width: 4em;
+  margin-top: 3em;
+}
+
+.card-info:nth-child(2) {
+  background: black;
+  color: white;
+  height: 14em;
+  margin-bottom: 1.5em;
+}
+
+.card-info:nth-child(2) img {
+  width: 5.5em;
+  margin-top: 0;
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  padding: 1em 2em;
+}
+
+
+.search-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+} 
+
+.address {
 
 }
 
-/* Adjust the tab text color */
-.tab,
-.tab.active {
-  color: #000; 
-  text-decoration: none; 
+.view-report {
+  background: none; 
+  border: none; 
+  color: black; 
+  padding: 0; 
+  margin: 0; 
+  cursor: pointer;
+  font-family: inherit; 
 }
 
+.previous-searches-title {
+  font-size: 18px;
+  font-weight: bold;
 
-.heat-pump-list {
+  margin-bottom: 1em;
+}
+
+.previous-searches-box {
+  background: #fff;
+  border-radius: 4px;
+  padding: 0 2em;
+  border: 1px solid rgba(136, 136, 136, 0.266);
+  border-radius: 5px;
+  width: 50em;
+}
+
+.header-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+
+  border-bottom: 1px solid rgba(136, 136, 136, 0.266);
+}
+
+.header-search h3 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.view-all {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.search-list {
   list-style: none;
   padding: 0;
-  margin: 0;
-  padding-top: 2em;
+  margin: 0; /* Reset the margin for the list */
+  margin-bottom: 2em;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: .5em;
 }
 
-.heat-pump-details {
+.previous-img-address {
   display: flex;
-  justify-content: space-between; /* This will separate the model and price */
-  width: 100%; /* Ensure the container takes up the full width */
+  flex-direction: row;
+
+  align-items: center;
+  column-gap: .5em;
 }
 
-.heat-pump-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f8f8f8;
+.previous-img-address img {
+  width: 27.5px;
+}
+
+/*  */
+
+.top-HeatPumps {
+  border: 1px solid rgba(136, 136, 136, 0.266);
+  width: 45em;
+  text-align: center;
+
   border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 25px;
 }
 
-.model {
-  font-weight: bold;
-  flex-grow: 1;
+.top-HeatPumps .title-top-hp {
+  font-size: 18px;
 }
 
-.price {
-  color: #007bff; /* The blue color */
-  margin-left: auto; /* Pushes the price to the right */
-  white-space: nowrap; /* Prevents the price from wrapping */
-  font-weight: bold;
-}
-
-
-.data-sections {
+.topHP-tabs {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px; /* Adjust the margin as needed */
+  padding: 1em 2em;
+
+  border: 1px solid rgba(136, 136, 136, 0.266);
+  margin: 0 1.5em;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.left-section {
-  width: 35%; 
-  padding-left: 2em;
+.topHP-tabs .topHP-tab {
+  padding: .75em 2.5em;
+  border-radius: 5px;
+  color: rgb(114, 114, 114);
+  font-weight: 200;
+
+  font-size: 14px;
 }
 
-.right-section {
-  width: 33%; 
-  padding-right: 8%;
-  padding-top: 2%;
+.topHP-tabs .topHP-tab.active {
+  background: black;
+  color: white;
+  font-weight: bold;
 }
 
-.chart-container {
-  margin-top: 20px; 
+.topHP-list {
+  padding: 2em;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
 }
 
+.bargraph {
+  width: 50em;
+}
 
+.ES-title {
+  font-size: 18px;
+  margin-top: 2.5em;
+}
 
-  
-    
-  
+/* Dashboard Headings */
+
+.heading {
+  padding: 2em 2em;
+  padding-bottom: 0;
+}
+
+.heading h2 {
+  margin: 0;
+  text-transform: uppercase; 
+  font-size: 24px; 
+  font-weight: bold; 
+  padding-bottom: 10px; 
+}
+
+.heading p {
+  margin: 0;
+  font-size: 15px; 
+  color: #9f9f9f 
+}
+
