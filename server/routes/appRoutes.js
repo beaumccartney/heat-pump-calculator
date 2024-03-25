@@ -17,11 +17,6 @@ const input_schema = [
   body('costOfElectricity')         .default("Current").isIn(["High","Current","Low"]),
 ]
 
-router.get('/', (req, res) => {
-  console.log(req)
-  res.send("Hello")
-});
-
 router.post('/calc', input_schema, (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
