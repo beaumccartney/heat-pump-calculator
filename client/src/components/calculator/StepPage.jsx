@@ -192,38 +192,66 @@ export const StepPage = () => {
     const fetchApiData = async () => {
         try {
             const homeSizeAverage = selectedHomeType ? parseHomeSize(selectedHomeType) : parseInt(customHomeSize, 10);
-            const inputs = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage };
-            console.log("API Inputs:", inputs); // Print the inputs for troubleshooting
+            const inputs1 = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage, 
+                existingFurnaceEfficiency: selectedEfficiency, heatPumpSelector: 'Unit 1'};
+            console.log("API Inputs:", inputs1); // Print the inputs for troubleshooting
     
             // Uncomment and use your actual API endpoint and request method
-            const response = await axios.post('http://localhost:3001/api/calc', inputs)
-            console.log("API Response:", response.data); // Log the API response for debugging
-            const parsed = Papa.parse(response.data);
+            const response1 = await axios.post('http://localhost:3001/api/calc', inputs1)
+            console.log("API Response:", response1.data); // Log the API response for debugging
+            const parsed1 = Papa.parse(response1.data);
 
 
             //Takes from the values and sets them from the first heatpump
             //First index value is to choose the heatpump, second is to choose the values from the heatpump
-            setH1_1Data('$ '+Math.round(parsed.data[4][1]));
-            setH1_2Data('$ '+Math.round(parsed.data[4][4]));
-            setH1_3Data(Math.round(parsed.data[4][5]));
-            setH1_4Data(parseFloat(parsed.data[4][6]).toFixed(1));
+            setH1_1Data('$ '+Math.round(parsed1.data[10][1]));
+            setH1_2Data('$ '+Math.round(parsed1.data[10][4]));
+            setH1_3Data(Math.round(parsed1.data[10][5]));
+            setH1_4Data(parseFloat(parsed1.data[10][6]).toFixed(1));
+            console.log(parsed1.data[10][1]);
+            console.log(parsed1.data[10][4]);
+            console.log(parsed1.data[10][5]);
+            console.log(parsed1.data[10][6]);
+
+
+            const inputs2 = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage, 
+                existingFurnaceEfficiency: selectedEfficiency, heatPumpSelector: 'Unit 3'};
+            console.log("API Inputs:", inputs2); // Print the inputs for troubleshooting
+    
+            // Uncomment and use your actual API endpoint and request method
+            const response2 = await axios.post('http://localhost:3001/api/calc', inputs2)
+            console.log("API Response:", response2.data); // Log the API response for debugging
+            const parsed2 = Papa.parse(response2.data);
 
             //Takes the values and sets them from the second heat pump
-            setH2_1Data('$ '+Math.round(parsed.data[6][1]));
-            setH2_2Data('$ '+Math.round(parsed.data[6][4]));
-            setH2_3Data(Math.round(parsed.data[6][5]));
-            setH2_4Data(parseFloat(parsed.data[6][6]).toFixed(1));
+            setH2_1Data('$ '+Math.round(parsed2.data[10][1]));
+            setH2_2Data('$ '+Math.round(parsed2.data[10][4]));
+            setH2_3Data(Math.round(parsed2.data[10][5]));
+            setH2_4Data(parseFloat(parsed2.data[10][6]).toFixed(1));
+            console.log(parsed2.data[10][1]);
+            console.log(parsed2.data[10][4]);
+            console.log(parsed2.data[10][5]);
+            console.log(parsed2.data[10][6]);
 
-            //Takes the values and sets the from the 4th heatpump
-            setH3_1Data('$ '+Math.round(parsed.data[10][1]));
-            setH3_2Data('$ '+Math.round(parsed.data[10][4]));
-            setH3_3Data(Math.round(parsed.data[10][5]));
-            setH3_4Data(parseFloat(parsed.data[10][6]).toFixed(1));
+            const inputs3 = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage, 
+                existingFurnaceEfficiency: selectedEfficiency, heatPumpSelector: 'Unit 5'};
+            console.log("API Inputs:", inputs3); // Print the inputs for troubleshooting
+    
+            // Uncomment and use your actual API endpoint and request method
+            const response3 = await axios.post('http://localhost:3001/api/calc', inputs3)
+            console.log("API Response:", response3.data); // Log the API response for debugging
+            const parsed3 = Papa.parse(response3.data);
 
-            console.log(parsed.data[4][1]);
-            console.log(parsed.data[4][4]);
-            console.log(parsed.data[4][5]);
-            console.log(parsed.data[4][6]);
+            //Takes the values and sets them from the second heat pump
+            setH3_1Data('$ '+Math.round(parsed3.data[10][1]));
+            setH3_2Data('$ '+Math.round(parsed3.data[10][4]));
+            setH3_3Data(Math.round(parsed3.data[10][5]));
+            setH3_4Data(parseFloat(parsed3.data[10][6]).toFixed(1));
+
+            console.log(parsed3.data[10][1]);
+            console.log(parsed3.data[10][4]);
+            console.log(parsed3.data[10][5]);
+            console.log(parsed3.data[10][6]);
     
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -342,13 +370,13 @@ export const StepPage = () => {
 
                     <div className="content">
                         <div className="options">
-                            <div className="option-efficiency" onClick={() => handleEfficiencySelect("80%")}>
+                            <div className="option-efficiency" onClick={() => handleEfficiencySelect(0.8)}>
                                 <div className="label-efficiency">80%</div>
                             </div>
-                            <div className="option-efficiency" onClick={() => handleEfficiencySelect("92%")}>
+                            <div className="option-efficiency" onClick={() => handleEfficiencySelect(0.92)}>
                                 <div className="label-efficiency">92%</div>
                             </div>
-                            <div className="option-efficiency" onClick={() => handleEfficiencySelect("97%")}>
+                            <div className="option-efficiency" onClick={() => handleEfficiencySelect(0.97)}>
                                 <div className="label-efficiency">97%</div>
                             </div>
                         </div>
@@ -489,6 +517,10 @@ export const StepPage = () => {
                 </div>
             </div>
         </div>
+
+
+    );
+};
 
 
     );
