@@ -4,12 +4,13 @@
     height: 100vh; /* Set the height to the full viewport height */
     justify-content: center; /* Center children vertically */
     align-items: center; /* Center children horizontally */
-    padding: 20px;
+    padding: 10px;
   }
   .page-container {
     display: flex;
     position: relative;
-   
+    top: 8vh;
+    margin-right: 10em;
   }
   .steps-sidebar {
     position: absolute;
@@ -18,7 +19,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; /* Full height of the sidebar */
   }
   
   .steps-container {
@@ -73,11 +73,17 @@
   
   .connector {
     width: 3px; /* Line thickness */
-    height: 40%; /* Line length */
+    height: 40vh; /* Line length */
     background-color: #007bff; /* Line color */
     margin-right: 60%;
   }
   
+  .connector2 {
+    width: 3px; /* Line thickness */
+    height: 10vh; /* Line length */
+    background-color: #007bff; /* Line color */
+    margin-right: 60%;
+  }
   .step.active {
     background-color: #007bff; /* Active step background color */
     color: #fff; /* Active step number color */
@@ -90,8 +96,8 @@
   }
   .title {
     position: absolute;
-    top: 40px; /* Adjust this value to match your layout */
-    left: 200px; /* Adjust this value to match your layout, assuming the step number is 60px wide */
+    top: 0.25em; /* Adjust this value to match your layout */
+    left: 7em; /* Adjust this value to match your layout, assuming the step number is 60px wide */
     font-size: 20px;
     color: #9F9F9F;
   }
@@ -103,7 +109,9 @@
     width: 100%;
     max-width: 1200px;
     margin: 20px 0; /* Add margin top and bottom */
+    flex-wrap: wrap; /* This ensures that items will wrap to the next line */
   }
+  
   
   .option {
     flex: 0 0 auto; /* Do not grow or shrink */
@@ -112,7 +120,7 @@
     align-items: center;
     padding: 10px;
     margin: 10px;
-    margin-top: 15%;
+    margin-top: 5%;
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 300px; /* Fixed width for options */
@@ -128,11 +136,11 @@
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    width: 300px; /* Fixed width for options */
-    height: 300px; /* Fixed height for options */
+    width: 12vw;
+    height: 20vh; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to match the design */
     transition: box-shadow 0.3s ease; /* Optional: adds a transition effect when hovered */
-    margin-top: 25%;
+    margin-top: 8%;
   }
   
   .option-year:hover {
@@ -140,7 +148,7 @@
   }
   
   .label-year {
-    font-size: 44px; /* Increased font size */
+    font-size: 32px; /* Increased font size */
     font-weight: bold; /* Ensure it's bold */
     margin-bottom: 0.5rem; /* Adjust bottom margin if necessary */
   }
@@ -155,11 +163,11 @@
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    width: 300px; /* Fixed width for options */
-    height: 300px; /* Fixed height for options */
+    width: 20vw;
+    height: 25vh; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to match the design */
     transition: box-shadow 0.3s ease; /* Optional: adds a transition effect when hovered */
-    margin-top: 25%;
+    margin-top: 5%;
   }
   
   .option-efficiency:hover {
@@ -188,7 +196,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 500px; /* Shorten the width of the custom home size input */
+    
     margin: 20px 0; /* Add margin top and bottom */
     margin-left: 17%;
   }
@@ -333,7 +341,7 @@
     h2 {
       color: #000000;
       font-size: 1.5rem; /* Adjust size as needed */
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       /* Additional styling as needed */
     }
     
