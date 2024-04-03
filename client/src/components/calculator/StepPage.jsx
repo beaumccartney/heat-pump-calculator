@@ -24,6 +24,7 @@ export const StepPage = () => {
     const [selectedEfficiency, setSelectedEfficiency] = useState(null);
     const [customEfficiency, setCustomEfficiency] = useState('');
     const [efficiencySubmitted, setEfficiencySubmitted] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('option1');
 
     //Saved values for the all the heatpumps
     const [h1_1, setH1_1Data] = useState(null);
@@ -41,12 +42,32 @@ export const StepPage = () => {
     const [h3_3, setH3_3Data] = useState(null);
     const [h3_4, setH3_4Data] = useState(null);
 
+    let widthh1_1 = 0;
 
 
-    const Card = ({ id, title, dataPoints }) => {
+    const Card = ({ id, title, dataPoints,  }) => {
+        const handleDropdownClick = (event) => {
+            event.stopPropagation();
+        };
+
+        const handleDropdownChange = (event) => {
+            setSelectedOption(event.target.value);
+            console.log(selectedOption);
+        };
+    
         return (
             <div className="card" id={id}>
-                <h2 className="card-title">{title}</h2>
+                <div className="card-header">
+                    <h2 className="card-title">{title}</h2>
+                    <select className="card-dropdown" value = {selectedOption} onClick={handleDropdownClick} onChange={handleDropdownChange}>
+                        <option value="option1"> 1 - Existing Heating/Cooling System</option>
+                        <option value="option2">2 - High Efficiency Furnace</option>
+                        <option value="option3">3 - Heat Pump and Backup HEF</option>
+                        <option value="option4">4 - Heat Pump, Backup HEF, and Solar PV</option>
+                        <option value="option5">5 - Optimized Cost Savings For Option 3</option>
+                        <option value="option6">6 - Optimized Cost Savings For Option 4</option>
+                    </select>
+                </div>
                 {dataPoints.map((point, index) => (
                     <div key={index} className="data-point">
                         <label className="data-label">{point.label}</label>
@@ -81,15 +102,27 @@ export const StepPage = () => {
                 cardStack.children[i].style.zIndex = cardStack.children.length - i;
             }
         };
+
+        const calculateWidthBasedOnValue = (value, maxValue) => {
+            if (value == null || value < 0)
+                value = 0;
+            const numericValue = parseFloat(value.toString().replace(/[^0-9.]/g, ''));
+            let widthPercentage = (numericValue / maxValue) * 100;
+            widthPercentage += 10;
+            const boundedWidth = Math.min(Math.max(widthPercentage, 0), 100);
+            
+            return `${boundedWidth}%`; // Convert to a string suitable for CSS // Convert to a percentage of the max value
+        };
+
         const cardData = [
             {
                 id: 'card1',
               title: 'HEAT PUMP #1',
               dataPoints: [
-                { label: 'UPFRONT INVESTMENT', value: h1_1, valueWidth: '70%' }, //values will be passed in from backend
-                { label: 'COST SAVINGS', value: h1_2, valueWidth: '30%' },
-                { label: 'ENERGY USE (GJ/YEAR)', value: h1_3, valueWidth: '50%' },
-                { label: 'GHG EMISSIONS (TONNES CO2E/YEAR)', value: h1_4, valueWidth: '40%' },
+                { label: 'UPFRONT INVESTMENT', value: h1_1, valueWidth: calculateWidthBasedOnValue (h1_1, 22000) }, //values will be passed in from backend
+                { label: 'ANNUAL ENERGY COSTS', value: h1_2, valueWidth: calculateWidthBasedOnValue (h1_2, 8000) },
+                { label: 'ENERGY USE (GJ/YEAR)', value: h1_3, valueWidth: calculateWidthBasedOnValue (h1_3, 370) },
+                { label: 'GHG EMISSIONS (TONNES CO2E/YEAR)', value: h1_4, valueWidth: calculateWidthBasedOnValue (h1_4, 20) },
                 // Add more data points as needed
               ],
             },
@@ -97,10 +130,10 @@ export const StepPage = () => {
                 id: 'card2',
                 title: 'HEAT PUMP #2',
                 dataPoints: [
-                  { label: 'UPFRONT INVESTMENT', value: h2_1, valueWidth: '70%' },
-                  { label: 'COST SAVINGS', value: h2_2, valueWidth: '30%' },
-                  { label: 'ENERGY USE (GJ/YEAR)', value: h2_3, valueWidth: '50%' },
-                  { label: 'GHG EMISSIONS (TONNES CO2E/YEAR)', value: h2_4, valueWidth: '40%' },
+                  { label: 'UPFRONT INVESTMENT', value: h2_1, valueWidth: calculateWidthBasedOnValue (h2_1, 22000) },
+                  { label: 'ANNUAL ENERGY COSTS', value: h2_2, valueWidth: calculateWidthBasedOnValue (h1_2, 8000) },
+                  { label: 'ENERGY USE (GJ/YEAR)', value: h2_3, valueWidth: calculateWidthBasedOnValue (h2_3, 370) },
+                  { label: 'GHG EMISSIONS (TONNES CO2E/YEAR)', value: h2_4, valueWidth: calculateWidthBasedOnValue (h2_4, 20) },
                   // Add more data points as needed
                 ],
               },
@@ -108,18 +141,16 @@ export const StepPage = () => {
                 id: 'card3',
                 title: 'HEAT PUMP #3',
                 dataPoints: [
-                  { label: 'UPFRONT INVESTMENT', value: h3_1, valueWidth: '70%' },
-                  { label: 'COST SAVINGS', value: h3_2, valueWidth: '30%' },
-                  { label: 'ENERGY USE (GJ/YEAR)', value: h3_3, valueWidth: '50%' },
-                  { label: 'GHG EMISSIONS (TONNES CO2E/YEAR)', value: h3_4, valueWidth: '40%' },
+                  { label: 'UPFRONT INVESTMENT', value: h3_1, valueWidth: calculateWidthBasedOnValue (h3_1, 22000) },
+                  { label: 'ANNUAL ENERGY COSTS', value: h3_2, valueWidth: calculateWidthBasedOnValue (h1_2, 8000) },
+                  { label: 'ENERGY USE (GJ/YEAR)', value: h3_3, valueWidth: calculateWidthBasedOnValue (h3_3, 370) },
+                  { label: 'GHG EMISSIONS (TONNES CO2E/YEAR)', value: h3_4, valueWidth: calculateWidthBasedOnValue (h3_4, 20) },
                   // Add more data points as needed
                 ],
               },
             // Add more cards as needed
         ];
         
-    
-
     // Function to handle the selection of an efficiency percentage
     const handleEfficiencySelect = (efficiency) => {
         console.log(efficiency);
@@ -180,78 +211,93 @@ export const StepPage = () => {
     
     useEffect(() => {
         // Check if the necessary conditions are met before fetching API data
-        const hasNecessaryData = selectedHomeYear && ((selectedHomeType && !customHomeSize) || (!selectedHomeType && customHomeSize)) && (selectedEfficiency || (customEfficiency && efficiencySubmitted));
-        console.log(`Ready for API call: ${hasNecessaryData}`); // Troubleshooting print statement
-    
+        const hasNecessaryData = selectedHomeYear && ((selectedHomeType && !customHomeSize) || (!selectedHomeType && customHomeSize)) && (selectedEfficiency || (customEfficiency && efficiencySubmitted));    
         if (hasNecessaryData) {
-            console.log("Preparing to fetch API data...");
+            console.log(selectedOption);
             fetchApiData();
         }
-    }, [selectedHomeYear, customHomeSize, selectedEfficiency, customEfficiency, efficiencySubmitted]);
+    }, [selectedHomeYear, customHomeSize, selectedEfficiency, customEfficiency, efficiencySubmitted, selectedOption]);
     
     const fetchApiData = async () => {
         try {
             const homeSizeAverage = selectedHomeType ? parseHomeSize(selectedHomeType) : parseInt(customHomeSize, 10);
             const inputs1 = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage, 
                 existingFurnaceEfficiency: selectedEfficiency, heatPumpSelector: 'Unit 1'};
-            console.log("API Inputs:", inputs1); // Print the inputs for troubleshooting
+            //console.log("API Inputs:", inputs1); // Print the inputs for troubleshooting
     
             // Uncomment and use your actual API endpoint and request method
             const response1 = await axios.post('http://localhost:3001/api/calc', inputs1)
-            console.log("API Response:", response1.data); // Log the API response for debugging
+            //console.log("API Response:", response1); // Log the API response for debugging
             const parsed1 = Papa.parse(response1.data);
 
+            let index = 0;
+            let find = 0;
+            if (selectedOption == 'option1'){
+                index = 2;
+                find = 0;
+            }
+
+            if (selectedOption == 'option2'){
+                index = 4;
+                find = 0;
+            }
+
+            if (selectedOption == 'option3'){
+                index = 6;
+                find = 0;
+            }
+
+            if (selectedOption == 'option4'){
+                index = 8;
+                find = 2;
+            }
+
+            if (selectedOption == 'option5'){
+                index = 10;
+                find = 0;
+            }
+
+            if (selectedOption == 'option6'){
+                index = 12;
+                find = 2;
+            }
 
             //Takes from the values and sets them from the first heatpump
             //First index value is to choose the heatpump, second is to choose the values from the heatpump
-            setH1_1Data('$ '+Math.round(parsed1.data[10][1]));
-            setH1_2Data('$ '+Math.round(parsed1.data[10][4]));
-            setH1_3Data(Math.round(parsed1.data[10][5]));
-            setH1_4Data(parseFloat(parsed1.data[10][6]).toFixed(1));
-            console.log(parsed1.data[10][1]);
-            console.log(parsed1.data[10][4]);
-            console.log(parsed1.data[10][5]);
-            console.log(parsed1.data[10][6]);
-
+            setH1_1Data('$ '+Math.round(parsed1.data[index][1+find]));
+            setH1_2Data('$ '+Math.round(Math.abs((parsed1.data[index][4+find]))));
+            setH1_3Data(Math.round(parsed1.data[index][5+find]));
+            setH1_4Data(parseFloat(parsed1.data[index][6+find]).toFixed(1));
 
             const inputs2 = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage, 
                 existingFurnaceEfficiency: selectedEfficiency, heatPumpSelector: 'Unit 3'};
-            console.log("API Inputs:", inputs2); // Print the inputs for troubleshooting
+            //console.log("API Inputs:", inputs2); // Print the inputs for troubleshooting
     
             // Uncomment and use your actual API endpoint and request method
             const response2 = await axios.post('http://localhost:3001/api/calc', inputs2)
-            console.log("API Response:", response2.data); // Log the API response for debugging
+            //console.log("API Response:", response2.data); // Log the API response for debugging
             const parsed2 = Papa.parse(response2.data);
 
             //Takes the values and sets them from the second heat pump
-            setH2_1Data('$ '+Math.round(parsed2.data[10][1]));
-            setH2_2Data('$ '+Math.round(parsed2.data[10][4]));
-            setH2_3Data(Math.round(parsed2.data[10][5]));
-            setH2_4Data(parseFloat(parsed2.data[10][6]).toFixed(1));
-            console.log(parsed2.data[10][1]);
-            console.log(parsed2.data[10][4]);
-            console.log(parsed2.data[10][5]);
-            console.log(parsed2.data[10][6]);
+            setH2_1Data('$ '+Math.round(parsed2.data[index][1+find]));
+            setH2_2Data('$ '+Math.round(Math.abs((parsed2.data[index][4+find]))));
+            setH2_3Data(Math.round(parsed2.data[index][5+find]));
+            setH2_4Data(parseFloat(parsed2.data[index][6+find]).toFixed(1));
 
             const inputs3 = { buildYear: selectedHomeYear, sizeOfHome: homeSizeAverage, 
                 existingFurnaceEfficiency: selectedEfficiency, heatPumpSelector: 'Unit 5'};
-            console.log("API Inputs:", inputs3); // Print the inputs for troubleshooting
+            //console.log("API Inputs:", inputs3); // Print the inputs for troubleshooting
     
             // Uncomment and use your actual API endpoint and request method
             const response3 = await axios.post('http://localhost:3001/api/calc', inputs3)
-            console.log("API Response:", response3.data); // Log the API response for debugging
+            //console.log("API Response:", response3.data); // Log the API response for debugging
             const parsed3 = Papa.parse(response3.data);
 
             //Takes the values and sets them from the second heat pump
-            setH3_1Data('$ '+Math.round(parsed3.data[10][1]));
-            setH3_2Data('$ '+Math.round(parsed3.data[10][4]));
-            setH3_3Data(Math.round(parsed3.data[10][5]));
-            setH3_4Data(parseFloat(parsed3.data[10][6]).toFixed(1));
-
-            console.log(parsed3.data[10][1]);
-            console.log(parsed3.data[10][4]);
-            console.log(parsed3.data[10][5]);
-            console.log(parsed3.data[10][6]);
+            setH3_1Data('$ '+Math.round(parsed3.data[index][1+find]));
+            setH3_2Data('$ '+Math.round(Math.abs((parsed3.data[index][4+find]))));
+            setH3_3Data(Math.round(parsed3.data[index][5+find]));
+            setH3_4Data(parseFloat(parsed3.data[index][6+find]).toFixed(1));
     
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -521,6 +567,7 @@ export const StepPage = () => {
 
     );
 };
+
 
 
     );
