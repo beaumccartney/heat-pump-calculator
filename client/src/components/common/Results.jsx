@@ -24,20 +24,23 @@ function Results() {
 
 
   const Results = {
-    "Gas Heating": {
-      desc: "with air conditioning",
-      cost: h1_1,
+    "Existing Heating/Cooling System": {
+      desc: "Your Current Heating/Cooling System",
+      cost: '$0',
       breakdown: [h1_2, h1_3, h1_4],
+      details: "Heating, Ventilation, and Air Conditioning (HVAC) systems are essential for maintaining comfortable temperatures and good air quality in homes and buildings. They consist of heating units like furnaces or heat pumps that warm up the space, cooling units like air conditioners that keep the environment cool, and ventilation systems that ensure fresh air circulation, removing stale air and maintaining healthy indoor air quality. These systems are controlled by thermostats, which allow users to set their desired temperature. Modern HVAC systems can be integrated, combining heating, cooling, and ventilation for efficient operation, and often include smart technology for better control and energy savings. Essentially, HVAC systems make our living and working environments more comfortable, regardless of the outdoor weather conditions."
     },
-    Testing: {
-      desc: "with air conditioning",
+    "High Efficiency Furnace With No Backup": {
+      desc: "Not Optimized for Cost Savings",
       cost: h2_1,
       breakdown: [h2_2, h2_3, h2_4],
+      details: "A high-efficiency furnace, often referred to as a condensing furnace, is designed to provide heating for a space with minimal energy waste, operating at efficiency levels of 90% or higher. Unlike traditional furnaces that might operate at around 80% efficiency or less, high-efficiency models achieve superior performance by using a second heat exchanger to capture heat from the exhaust gases that would otherwise be vented outside. This process not only conserves energy but also reduces heating costs and carbon footprint."
     },
-    Testing2: {
-      desc: "with air conditioning",
+    "Heat Pump and Backup High Efficiency Furnace": {
+      desc: "Optimized for Cost Savings",
       cost: h3_1,
       breakdown: [h3_2, h3_3, h3_4],
+      details: "A heat pump paired with a backup high-efficiency furnace offers a versatile and energy-efficient solution for year-round indoor comfort, seamlessly providing both heating and cooling to a home. Heat pumps work by transferring heat from the outside air (even in cold temperatures) into your home during the winter and reversing the process in the summer to cool your home. They are highly efficient because they move heat rather than generate it directly, making them more energy-efficient and cost-effective for moderate climates."
     },
   };
 
@@ -98,23 +101,23 @@ function Results() {
         console.log('Api Response: ', results1);
         console.log(results1.data[4][1]);
         console.log(typeof results1.data[4][4]);
-        setH1_1Data(parseFloat(results1.data[6][1]));//dont chnage
-        setH1_2Data('$'+ parseFloat(results1.data[6][4]).toFixed(0));
-        setH1_3Data(parseFloat(results1.data[6][5]).toFixed(0));
-        setH1_4Data(parseFloat(results1.data[6][6]).toFixed(0));
+        setH1_1Data('$'+parseFloat(results1.data[2][1]));//dont chnage
+        setH1_2Data('$'+ parseFloat(results1.data[2][4]).toFixed(0));
+        setH1_3Data(parseFloat(results1.data[2][5]).toFixed(0));
+        setH1_4Data(parseFloat(results1.data[2][6]).toFixed(0));
 
         //Api call for 2nd heat pump
         const results2 = Papa.parse(response2.data);
-        setH2_1Data(parseFloat(results2.data[6][1]));//dont chnage
-        setH2_2Data('$'+ parseFloat(results2.data[6][4]).toFixed(0));
-        setH2_3Data(parseFloat(results2.data[6][5]).toFixed(0));
-        setH2_4Data(parseFloat(results2.data[6][6]).toFixed(0));
+        setH2_1Data('$'+parseFloat(results2.data[4][1]));//dont chnage
+        setH2_2Data('$'+ parseFloat(results2.data[4][4]).toFixed(0));
+        setH2_3Data(parseFloat(results2.data[4][5]).toFixed(0));
+        setH2_4Data(parseFloat(results2.data[4][6]).toFixed(0));
         //console.log('Api Response: ', results2);
 
         //Api call for 3rd heat pump
         const results3 = Papa.parse(response3.data);
         //console.log('Api Response: ', results3);
-        setH3_1Data(parseFloat(results3.data[6][1]));//dont chnage
+        setH3_1Data('$'+parseFloat(results3.data[6][1]));//dont chnage
         setH3_2Data('$'+ parseFloat(results3.data[6][4]).toFixed(0));
         setH3_3Data(parseFloat(results3.data[6][5]).toFixed(0));
         setH3_4Data(parseFloat(results3.data[6][6]).toFixed(0));
@@ -168,6 +171,7 @@ function Results() {
                 >
                   <span className="cost-breakdown-title">Cost breakdown</span>
                   {Results[val].breakdown.map((item, i) => (
+                    i == 0 ?
                     <span className="cost-breakdown-span" key={i}>
                       <span
                         className="money-value-title"
@@ -194,6 +198,62 @@ function Results() {
                       </span>
                       <span>{item}</span>
                     </span>
+                    :
+                    i == 1 ?
+                    <span className="cost-breakdown-span" key={i}>
+                      <span
+                        className="money-value-title"
+                        style={{
+                          width: `${
+                            parseInt(item?.replace("$", "")?.replace(",", "")) /
+                            0.485
+                          }px`,
+                          backgroundColor:
+                            parseInt(item?.replace("$", "")?.replace(",", "")) <
+                            60
+                              ? "#ccffcc"
+                              : "#ffcccc",
+                          overflow: "visible",
+                          whiteSpace: "nowrap",
+                          display: "inline-block",
+                        }}
+                      >
+                        {i === 0
+                          ? "Annual Energy Costs"
+                          : i === 1
+                          ? "Energy Use (GJ/year)"
+                          : "GHG Emissions (tonnes CO2e/year)"}
+                      </span>
+                      <span>{item}</span>
+                    </span>
+                    :
+              
+                    <span className="cost-breakdown-span" key={i}>
+                      <span
+                        className="money-value-title"
+                        style={{
+                          width: `${
+                            parseInt(item?.replace("$", "")?.replace(",", "")) /
+                            0.0295
+                          }px`,
+                          backgroundColor:
+                            parseInt(item?.replace("$", "")?.replace(",", "")) <
+                            3
+                              ? "#ccffcc"
+                              : "#ffcccc",
+                          overflow: "visible",
+                          whiteSpace: "nowrap",
+                          display: "inline-block",
+                        }}
+                      >
+                        {i === 0
+                          ? "Annual Energy Costs"
+                          : i === 1
+                          ? "Energy Use (GJ/year)"
+                          : "GHG Emissions (tonnes CO2e/year)"}
+                      </span>
+                      <span>{item}</span>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -201,7 +261,7 @@ function Results() {
                 variant="outlined"
                 onClick={() => handleOpenModal(val)}
                 sx={{
-                  marginTop: "4rem",
+                  marginTop: "3rem",
                   borderRadius: "20px",
                   backgroundColor: "blue",
                   color: "white",
@@ -227,6 +287,7 @@ function Results() {
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 4,
+            spacing: 2
           }}
         >
           <Button
@@ -235,28 +296,20 @@ function Results() {
           >
             Close
           </Button>
-          <Typography variant="h6" component="h2">
+          <Typography fontWeight={'bold'} variant="h6" component="h2" sx={ {mb: theme => theme.spacing(2) }}>
             {selectedResult}
           </Typography>
           <Typography variant="body1" component="div">
-            Description: {Results[selectedResult]?.desc}
-          </Typography>
-          <Typography variant="body1" component="div">
-            Cost: {Results[selectedResult]?.cost}
-          </Typography>
-          <Typography variant="body1" component="div">
-            Breakdown:
-            <ul>
-              {Results[selectedResult]?.breakdown.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
+            {Results[selectedResult]?.details}
           </Typography>
         </Box>
       </Modal>
     </div>
   );
 }
+
+export default Results;
+
 
 export default Results;
 
