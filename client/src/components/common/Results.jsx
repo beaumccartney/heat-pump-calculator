@@ -40,22 +40,53 @@ function Results() {
         const existingFurnaceEfficiency = parseFloat(queryParams.get('existingFurnaceEfficiency')) / 100;
 
         console.log(sizeOfHome, buildYear, existingFurnaceEfficiency)
-        const inputs = {
+        const inputs1 = {
           buildYear,
           sizeOfHome,
           existingFurnaceEfficiency,
           heatPumpSelector: "Unit 1",
         };
 
-        console.log(inputs)
+        const inputs2 = {
+          buildYear,
+          sizeOfHome,
+          existingFurnaceEfficiency,
+          heatPumpSelector: "Unit 3",
+        };
 
-        const response = await axios.post(
+        const inputs3 = {
+          buildYear,
+          sizeOfHome,
+          existingFurnaceEfficiency,
+          heatPumpSelector: "Unit 5",
+        };
+
+        console.log(inputs1);
+        const response1 = await axios.post(
           "http://localhost:3001/api/calc",
-          inputs
+          inputs1
         );
-        const parsed = Papa.parse(response.data);
-        setResultsData(parsed);
-        console.log(parsed)
+        console.log(inputs2);
+        const response2 = await axios.post(
+          "http://localhost:3001/api/calc",
+          inputs2
+        );
+        console.log(inputs3);
+        const response3 = await axios.post(
+          "http://localhost:3001/api/calc",
+          inputs3
+        );
+        //Api call for 1st heat pump
+        const results1 = Papa.parse(response1.data);
+        console.log('Api Response: ', results1);
+
+        //Api call for 2nd heat pump
+        const results2 = Papa.parse(response2.data);
+        console.log('Api Response: ', results2);
+
+        //Api call for 3rd heat pump
+        const results3 = Papa.parse(response3.data);
+        console.log('Api Response: ', results3);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -197,3 +228,4 @@ function Results() {
 }
 
 export default Results;
+
