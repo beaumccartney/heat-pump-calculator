@@ -35,15 +35,10 @@ export const FAQ = () => {
 
   return (
     <>
-      <Box sx={{ paddingLeft: "2em", paddingTop: "1em" }}>
-        <Typography variant="h4" gutterBottom component="div" id='Heading'>
-          Frequently Asked Questions
-        </Typography>
-        <Typography variant="body1" className='ParagraphText'>
-          Welcome to our FAQ page! Find quick answers to common queries below.
-        </Typography>
-      </Box>
-
+      <div className = "heading">
+        <h2>Frequently Asked Questions</h2>
+        <p>Welcome to our FAQ page! Find quick answers to common queries below.</p>
+      </div>
       <Container maxWidth="md">
         <Box my={4} display="flex" justifyContent="center">
           <img src={FAQPicture} alt="FAQ Picture" style={{ width: '100%', maxWidth: '700px', height: 'auto' }} />

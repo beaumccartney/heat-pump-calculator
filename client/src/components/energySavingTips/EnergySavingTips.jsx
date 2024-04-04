@@ -10,13 +10,12 @@ import EnergySavingTipsPic4 from '../assets/images/EnergySavingTipsPic4.png';
 export const EnergySavingTips = () => {
     return (
         <>
-          <div className='heading'>
+        <div className = "heading">
             <h2>Energy Saving Tips</h2>
-          </div>
-          <div className='below-title-text'>
-            <p className='ParagraphText'>Welcome to our Energy Saving Tips page! Find quick Energy Saving Tips below.</p>
-          </div>
-            <Grid container spacing={4} style={{ justifyContent: 'Center' }}>
+            <p>Welcome to our Energy Saving Tips page! Find quick Energy Saving Tips below.</p>
+        </div>
+
+            <Grid container spacing={4} style={{ justifyContent: 'Center', marginTop: "5rem" }}>
                 <Grid item xs={12} md={2.4} lg={2} >
                     <Card sx={{ maxWidth: 345, height: '600px' }}>
                         <CardMedia component="img" alt="Heating your Home" height="150" image={EnergySavingTipsPic1} />
