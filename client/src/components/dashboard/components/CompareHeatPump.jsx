@@ -19,7 +19,7 @@ function CompareHeatPump() {
         },
         "Compare Heat Pumps": {
             description: "Compare a list of available heat pumps and find a suitable one!",
-            link: "/calculator"
+            link: "/compare"
         },
     }
 

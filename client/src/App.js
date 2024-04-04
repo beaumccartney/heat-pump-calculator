@@ -18,6 +18,7 @@ import { Settings } from "./components/pages/Settings";
 import { EnergySavingTips } from "./components/pages/EnergySavingTips";
 import { StepPage } from "./components/calculator/StepPage"; 
 import Sidebar from './components/common/Sidebar';
+import CompareHP from "./components/compareHP/CompareHP";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
             <Route path="/energy-saving-tips" component={EnergySavingTips} />
             <Route path="/calculator" component={StepPage} />
             <Route path="/results" component={CustomComponents} />
+            <Route path="/compare" component={CompareHP} />
           </Switch>
         </div>
       </div>
