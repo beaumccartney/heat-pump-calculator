@@ -7,11 +7,16 @@ import Papa from "papaparse";
 
 function Results() {
 
+  const [h1_1, setH1_1Data] = useState(null);
+  const [h1_2, setH1_2Data] = useState(null);
+  const [h1_3, setH1_3Data] = useState(null);
+  const [h1_4, setH1_4Data] = useState(null);
+
   const Results = {
     "Gas Heating": {
       desc: "with air conditioning",
-      cost: "$1,181",
-      breakdown: ["$656", "$28", "$1620"],
+      cost: h1_1,
+      breakdown: [h1_2, h1_3, h1_4],
     },
     Testing: {
       desc: "with air conditioning",
@@ -27,6 +32,8 @@ function Results() {
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedResult, setSelectedResult] = useState(null);
+  const [resultsData, setResultsData] = useState({});
+
 
   const location = useLocation();
 
@@ -78,21 +85,26 @@ function Results() {
         //Api call for 1st heat pump
         const results1 = Papa.parse(response1.data);
         console.log('Api Response: ', results1);
+        setH1_1Data(results1.data[4][1]);
+        //console.log(typeof results1.data[4][4])
+        setH1_2Data(results1.data[4][4]);
+        setH1_3Data(results1.data[4][5]);
+        setH1_4Data(results1.data[4][6]);
 
         //Api call for 2nd heat pump
-        const results2 = Papa.parse(response2.data);
-        console.log('Api Response: ', results2);
+        //const results2 = Papa.parse(response2.data);
+        //console.log('Api Response: ', results2);
 
         //Api call for 3rd heat pump
-        const results3 = Papa.parse(response3.data);
-        console.log('Api Response: ', results3);
+        //const results3 = Papa.parse(response3.data);
+        //console.log('Api Response: ', results3);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [location.search]);
 
   const handleOpenModal = (result) => {
     setSelectedResult(result);
@@ -227,4 +239,3 @@ function Results() {
 }
 
 export default Results;
-
