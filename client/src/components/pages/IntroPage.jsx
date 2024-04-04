@@ -50,9 +50,17 @@ export const IntroPage = () => {
 
   return (
     <>
-      <div>
+      <div style={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh', // Set height to 100vh for full viewport height
+        margin: 'auto', // Optional: to center horizontally
+       }}>
         {/* Material UI Container component */}
         <Container
+        
           style={{
             display: "flex",
             justifyContent: "center",

@@ -9,9 +9,10 @@ function PreviousSearches() {
     const [searchData, setSearchData] = useState([]);
     useEffect(() => {
         setSearchData([
-            { address: '1234 56 Ave NW' },
-            { address: '1234 56 Ave NW' },
-            { address: '1234 56 Ave NW' }
+            { address: 'Ahmed Abbas' },
+            { address: 'Beau McCartney' },
+            { address: 'Liam Parmar' },
+            { address: 'Sid Menon' },
         ]);
     }, []);
 
