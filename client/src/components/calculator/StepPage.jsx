@@ -74,7 +74,6 @@ export const StepPage = () => {
         );
       }
 
-      // Usage within your Stepper component
 function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
     return (
       <Stepper activeStep={activeStep} orientation="vertical" 
@@ -216,7 +215,6 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
     };
 
 
-    // Function to handle the selection of a home type
     const handleHomeTypeSelect = (type) => {
         setSelectedHomeType(type);
         setCustomHomeSize('');
@@ -275,13 +273,13 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                     disabled={activeStep === 0}
                     aria-label="back"
                     style={{
-                        color: 'white', // Icon color
-                        backgroundColor: '#1976d2', // Circle color
-                        borderRadius: '50%', // Circle shape
-                        padding: '15px', // Circle size
-                        transform: 'translateX(2px)', // Adjust if icon is off to the left
+                        color: 'white', 
+                        backgroundColor: '#1976d2', 
+                        borderRadius: '50%', 
+                        padding: '15px', 
+                        transform: 'translateX(2px)', 
                        
-                        // Directly applying hover effects through inline styles is not straightforward
+                       
                     }}
                 >
                     <ArrowBackIosIcon 
@@ -320,9 +318,9 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                                 <Box
                                     sx={{
                                         display: 'flex',
-                                        flexDirection: 'column', // Stack the elements vertically.
-                                        alignItems: 'center', // Align items to the start of the flex container.
-                                        '& .MuiTextField-root': { m: 1, width: '400px' }, // Increase width as needed.
+                                        flexDirection: 'column', 
+                                        alignItems: 'center', 
+                                        '& .MuiTextField-root': { m: 1, width: '400px' }, 
                                         '& .MuiButton-root': { m: 1 },
                                         marginLeft: '',
                                     }}
@@ -338,16 +336,16 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                                         onChange={(event) => setCustomHomeSize(event.target.value)}
                                         placeholder="Enter custom size"
                                         size="small"
-                                        // Adjust the TextField styles as necessary.
+                                      
                                         sx={{
-                                            marginBottom: 2, // Ensures space between the TextField and Button.
+                                            marginBottom: 2, 
                                         }}
                                     />
                                     <Button 
                                         variant="contained" 
                                         color="primary" 
                                         onClick={handleCustomHomeSizeSubmit}
-                                        // Adjust the Button styles if necessary.
+                                      
                                     >
                                         Submit
                                     </Button>
@@ -383,9 +381,9 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                                 <Box
                                     sx={{
                                         display: 'flex',
-                                        flexDirection: 'column', // Stack the elements vertically.
-                                        alignItems: 'center', // Align items to the start of the flex container.
-                                        '& .MuiTextField-root': { m: 1, width: '400px' }, // Increase width as needed.
+                                        flexDirection: 'column', 
+                                        alignItems: 'center', 
+                                        '& .MuiTextField-root': { m: 1, width: '400px' }, 
                                         '& .MuiButton-root': { m: 1 },
                                     }}
                                     noValidate
@@ -400,16 +398,16 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                                         onChange={(event) => setCustomEfficiency(event.target.value)}
                                         placeholder="Enter custom efficiency"
                                         size="small"
-                                        // Adjust the TextField styles as necessary.
+                                        
                                         sx={{
-                                            marginBottom: 2, // Ensures space between the TextField and Button.
+                                            marginBottom: 2, 
                                         }}
                                     />
                                     <Button 
                                         variant="contained" 
                                         color="primary" 
                                         onClick={handleCustomEfficiencySubmit}
-                                        // Adjust the Button styles if necessary.
+                                        
                                     >
                                         Submit
                                     </Button>

@@ -15,11 +15,12 @@ import {Dashboard} from "./components/dashboard/Dashboard";
 import { FAQ } from "./components/pages/FAQ";
 import { IntroPage } from "./components/pages/IntroPage";
 import { Settings } from "./components/pages/Settings";
-import { EnergySavingTips } from "./components/pages/EnergySavingTips";
+import { EnergySavingTips } from "./components/energySavingTips/EnergySavingTips";
 import { StepPage } from "./components/calculator/StepPage"; 
 import Sidebar from './components/common/Sidebar';
 import CompareHP from "./components/compareHP/CompareHP";
 import Results from "./components/common/Results";
+import Tracking from "./components/tracking/Tracking";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
             <Route path="/calculator" component={StepPage} />
             <Route path="/results" component={Results} />
             <Route path="/compare" component={CompareHP} />
+            <Route path="/tracking" component={Tracking} />
           </Switch>
         </div>
       </div>

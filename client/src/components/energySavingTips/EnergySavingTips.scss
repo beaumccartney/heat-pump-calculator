@@ -1,27 +1,41 @@
-.EnergySavingTipsPicture{
+.EnergySavingTipsPicture {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     margin-bottom: 20px;
-}
-@media (max-width: 600px) {
-    .card {
-        //width: 100%;
-        width: 60%;
-        margin: 10px 0;
+  
+    @media (max-width: 600px) {
+      width: 90%;
     }
+  
+    @media (min-width: 601px) and (max-width: 900px) {
+      width: 90%;
+    }
+  }
+  
+  .heading h2 {
+    font-size: 32px;
+  }
 
-    .EnergySavingTipsPicture{
-        width: 90%;
+  .below-title-text {
+    max-width: 80%;
+    padding-left: 2em;
+    padding-bottom: 4em;
+  }
+  .tipsGrid {
+    justify-content: 'Center'; 
+  }
+  
+  .card {
+    @media (max-width: 600px) {
+      width: 60%;
+      margin: 10px 0;
     }
-}
-@media (min-width: 601px) and (max-width: 900px) {
-    .card {
-        width: 48%;
-        margin: 1%;
+  
+    @media (min-width: 601px) and (max-width: 900px) {
+      width: 48%;
+      margin: 1%;
     }
-    .EnergySavingTipsPicture{
-        width: 90%;
-    }
-}
+  }
+  
