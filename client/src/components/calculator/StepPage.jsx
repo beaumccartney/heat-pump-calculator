@@ -246,11 +246,21 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
         { label: "80%", value: "80%" },
         { label: "92%", value: "92%" },
         { label: "97%", value: "97%" },
-        { label: "I don't know", value: "unknown" },
+        { label: "I don't know", value: "I don't know" },
       ];
 
       const history = useHistory();
       console.log(activeStep);
+
+      const parseHomeSize = (homeType) => {
+        const sizePattern = /(\d+)/;
+        const match = homeType.match(sizePattern);
+        if (match) {
+          return parseInt(match[0]);
+        }
+        return 0; 
+      };
+
     return (
         <div className="home-type-selection">
             <div className="title">
@@ -288,7 +298,7 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                     />
                     {activeStep === steps.length && (
                         history.push({
-                            pathname: "/results",
+                            pathname: `/results?buildYear=${selectedHomeYear}&sizeOfHome=${parseHomeSize(selectedHomeType)}&existingFurnaceEfficiency=${String(selectedEfficiency).replace("%", "")}`,
                             state: { selectedHomeType, selectedHomeYear, selectedEfficiency }
                           })
                           
@@ -349,7 +359,7 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                         <>
                              <div className="options">
                                 {homeYearRanges.map((year, index) => (
-                                <div className="option-year" key={index} onClick={() => handleHomeYearSelect(year.range)}>
+                                <div className="option-year" key={index} onClick={() => handleHomeYearSelect(year.label)}>
                                     <div className="label-year">{year.label}</div>
                                 </div>
                                 ))}

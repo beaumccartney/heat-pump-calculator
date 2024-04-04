@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Button, Modal, Box, Typography } from "@mui/material";
 import "./Results.css";
+import axios from "axios";
+import Papa from "papaparse";
 
 function Results() {
+
   const Results = {
     "Gas Heating": {
       desc: "with air conditioning",
@@ -23,6 +27,42 @@ function Results() {
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedResult, setSelectedResult] = useState(null);
+  const [resultsData, setResultsData] = useState({});
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const queryParams = new URLSearchParams(location.search);
+        const sizeOfHome = parseInt(queryParams.get('sizeOfHome'));
+        const buildYear = queryParams.get('buildYear');
+        const existingFurnaceEfficiency = parseFloat(queryParams.get('existingFurnaceEfficiency')) / 100;
+
+        console.log(sizeOfHome, buildYear, existingFurnaceEfficiency)
+        const inputs = {
+          buildYear,
+          sizeOfHome,
+          existingFurnaceEfficiency,
+          heatPumpSelector: "Unit 1",
+        };
+
+        console.log(inputs)
+
+        const response = await axios.post(
+          "http://localhost:3001/api/calc",
+          inputs
+        );
+        const parsed = Papa.parse(response.data);
+        setResultsData(parsed);
+        console.log(parsed)
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [location.search]);
 
   const handleOpenModal = (result) => {
     setSelectedResult(result);
@@ -71,14 +111,12 @@ function Results() {
                         className="money-value-title"
                         style={{
                           width: `${
-                            parseInt(
-                              item.replace("$", "").replace(",", "")
-                            ) / 20
+                            parseInt(item.replace("$", "").replace(",", "")) /
+                            20
                           }px`,
                           backgroundColor:
-                            parseInt(
-                              item.replace("$", "").replace(",", "")
-                            ) < 1000
+                            parseInt(item.replace("$", "").replace(",", "")) <
+                            1000
                               ? "#ccffcc"
                               : "#ffcccc",
                           overflow: "visible",
@@ -100,7 +138,15 @@ function Results() {
               <Button
                 variant="outlined"
                 onClick={() => handleOpenModal(val)}
-                sx={{ marginTop: "4rem", borderRadius: "20px", backgroundColor: "blue", color: "white", fontSize: "16px", fontWeight: "900", padding: ".5rem" }}
+                sx={{
+                  marginTop: "4rem",
+                  borderRadius: "20px",
+                  backgroundColor: "blue",
+                  color: "white",
+                  fontSize: "16px",
+                  fontWeight: "900",
+                  padding: ".5rem",
+                }}
               >
                 Details
               </Button>
