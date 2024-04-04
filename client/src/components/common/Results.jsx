@@ -12,6 +12,17 @@ function Results() {
   const [h1_3, setH1_3Data] = useState(null);
   const [h1_4, setH1_4Data] = useState(null);
 
+  const [h2_1, setH2_1Data] = useState(null);
+  const [h2_2, setH2_2Data] = useState(null);
+  const [h2_3, setH2_3Data] = useState(null);
+  const [h2_4, setH2_4Data] = useState(null);
+
+  const [h3_1, setH3_1Data] = useState(null);
+  const [h3_2, setH3_2Data] = useState(null);
+  const [h3_3, setH3_3Data] = useState(null);
+  const [h3_4, setH3_4Data] = useState(null);
+
+
   const Results = {
     "Gas Heating": {
       desc: "with air conditioning",
@@ -20,13 +31,13 @@ function Results() {
     },
     Testing: {
       desc: "with air conditioning",
-      cost: "$1,181",
-      breakdown: ["$656", "$28", "$1620"],
+      cost: h2_1,
+      breakdown: [h2_2, h2_3, h2_4],
     },
     Testing2: {
       desc: "with air conditioning",
-      cost: "$1,181",
-      breakdown: ["$656", "$28", "$1620"],
+      cost: h3_1,
+      breakdown: [h3_2, h3_3, h3_4],
     },
   };
 
@@ -85,19 +96,28 @@ function Results() {
         //Api call for 1st heat pump
         const results1 = Papa.parse(response1.data);
         console.log('Api Response: ', results1);
-        setH1_1Data(results1.data[4][1]);
-        //console.log(typeof results1.data[4][4])
-        setH1_2Data(results1.data[4][4]);
-        setH1_3Data(results1.data[4][5]);
-        setH1_4Data(results1.data[4][6]);
+        console.log(results1.data[4][1]);
+        console.log(typeof results1.data[4][4]);
+        setH1_1Data(parseFloat(results1.data[6][1]));//dont chnage
+        setH1_2Data('$'+ parseFloat(results1.data[6][4]).toFixed(0));
+        setH1_3Data(parseFloat(results1.data[6][5]).toFixed(0));
+        setH1_4Data(parseFloat(results1.data[6][6]).toFixed(0));
 
         //Api call for 2nd heat pump
-        //const results2 = Papa.parse(response2.data);
+        const results2 = Papa.parse(response2.data);
+        setH2_1Data(parseFloat(results2.data[6][1]));//dont chnage
+        setH2_2Data('$'+ parseFloat(results2.data[6][4]).toFixed(0));
+        setH2_3Data(parseFloat(results2.data[6][5]).toFixed(0));
+        setH2_4Data(parseFloat(results2.data[6][6]).toFixed(0));
         //console.log('Api Response: ', results2);
 
         //Api call for 3rd heat pump
-        //const results3 = Papa.parse(response3.data);
+        const results3 = Papa.parse(response3.data);
         //console.log('Api Response: ', results3);
+        setH3_1Data(parseFloat(results3.data[6][1]));//dont chnage
+        setH3_2Data('$'+ parseFloat(results3.data[6][4]).toFixed(0));
+        setH3_3Data(parseFloat(results3.data[6][5]).toFixed(0));
+        setH3_4Data(parseFloat(results3.data[6][6]).toFixed(0));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -153,11 +173,11 @@ function Results() {
                         className="money-value-title"
                         style={{
                           width: `${
-                            parseInt(item.replace("$", "").replace(",", "")) /
+                            parseInt(item?.replace("$", "")?.replace(",", "")) /
                             20
                           }px`,
                           backgroundColor:
-                            parseInt(item.replace("$", "").replace(",", "")) <
+                            parseInt(item?.replace("$", "")?.replace(",", "")) <
                             1000
                               ? "#ccffcc"
                               : "#ffcccc",
@@ -167,10 +187,10 @@ function Results() {
                         }}
                       >
                         {i === 0
-                          ? "Equipment after rebates"
+                          ? "Annual Energy Costs"
                           : i === 1
-                          ? "Electricity"
-                          : "Other fees"}
+                          ? "Energy Use (GJ/year)"
+                          : "GHG Emissions (tonnes CO2e/year)"}
                       </span>
                       <span>{item}</span>
                     </span>
@@ -239,3 +259,4 @@ function Results() {
 }
 
 export default Results;
+
