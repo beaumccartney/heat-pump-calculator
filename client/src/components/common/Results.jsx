@@ -71,14 +71,14 @@ function Results() {
           buildYear,
           sizeOfHome,
           existingFurnaceEfficiency,
-          heatPumpSelector: "Unit 3",
+          heatPumpSelector: "Unit 1",
         };
 
         const inputs3 = {
           buildYear,
           sizeOfHome,
           existingFurnaceEfficiency,
-          heatPumpSelector: "Unit 5",
+          heatPumpSelector: "Unit 1",
         };
 
         console.log(inputs1);
