@@ -5,7 +5,7 @@ import image2 from '../assets/images/est.png'; // Update with the correct path
 import image3 from '../assets/images/dailyusage.png'; // Update with the correct path
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
-
+import { useHistory, useLocation } from "react-router-dom";
 
 const Card = ({ id, title, dataPoints }) => {
     return (
@@ -82,7 +82,8 @@ const CustomComponents = () => {
         // Add more cards as needed
     ];
     
-
+    const location = useLocation();
+    console.log(location.state.selectedHomeType);
     return (
         <div>
             <header>
@@ -98,15 +99,15 @@ const CustomComponents = () => {
             <div className="container">
                 <div className="item-container">
                     <div className="item">Home Type</div>
-                    <div className="rectangle"><span>Text 1</span></div>
+                    <div className="rectangle"><span>{location.state.selectedHomeType}</span></div>
                 </div>
                 <div className="item-container">
                     <div className="item">Home Year</div>
-                    <div className="rectangle"><span>Text 2</span></div>
+                    <div className="rectangle"><span>{location.state.selectedHomeYear}</span></div>
                 </div>
                 <div className="item-container">
                     <div className="item">Consumption</div>
-                    <div className="rectangle"><span>Text 3</span></div>
+                    <div className="rectangle"><span>{location.state.selectedEfficiency}</span></div>
                 </div>
 
             </div>
