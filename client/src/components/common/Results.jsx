@@ -27,7 +27,6 @@ function Results() {
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedResult, setSelectedResult] = useState(null);
-  const [resultsData, setResultsData] = useState({});
 
   const location = useLocation();
 
@@ -93,7 +92,7 @@ function Results() {
     };
 
     fetchData();
-  }, [location.search]);
+  }, []);
 
   const handleOpenModal = (result) => {
     setSelectedResult(result);
