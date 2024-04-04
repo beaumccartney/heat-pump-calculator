@@ -1,0 +1,115 @@
+.results-page {
+    padding: 5rem !important;
+}
+
+.results-page .header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+
+}
+
+.results-page .header .results-title {
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.results-page .header .description {
+    width: 30%;
+    font-size: 20px;
+    line-height: 1.8rem;
+    color:rgb(57, 57, 57);
+}
+
+.results-page .bold {
+    font-weight: 800;
+}
+
+.results-page .comparisons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2rem;
+
+    margin-top: 6rem;
+}
+
+.results-page .comparisons .results-card {
+    width: 20rem !important;
+    height: 30rem !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.results-page .comparisons .results-card:hover {
+    transform: scale(1.1);
+    transition: transform .4s;
+}
+
+.results-page .comparisons .results-card .results-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.results-page .comparisons .results-card .results-card-content .content-title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.results-page .comparisons .results-card .content-desc {
+    margin-top: .25rem
+}
+
+.results-page .comparisons .results-card .content-cost {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: .25rem;
+}
+
+.results-page .comparisons .results-card .content-cost .cost-desc {
+    font-size: 16.5px;
+}
+
+.results-page .comparisons .results-card .content-cost .cost-amt {
+    font-weight: 800;
+    font-size: 35px;
+}
+
+.cost-breakdown {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.cost-breakdown-title {
+    margin-bottom: .75rem;
+    font-weight: 600;
+}
+
+.cost-breakdown-span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.money-value-title {
+    display: inline-block;
+    padding: 5px 10px !important;
+    border-radius: 15px;
+}
+
+.cost-breakdown-span > span {
+    padding: 2px; /* Adjust padding as needed */
+    display: inline-block;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.cost-breakdown-span > span {
+    padding: 2px; /* Adjust padding as needed */
+    display: inline-block;
+    white-space: nowrap;
+    overflow: visible;
+}
