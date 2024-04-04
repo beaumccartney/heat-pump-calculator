@@ -14,8 +14,8 @@ export const EnergySavingTips = () => {
             <h2>Energy Saving Tips</h2>
             <p>Welcome to our Energy Saving Tips page! Find quick Energy Saving Tips below.</p>
         </div>
-
-            <Grid container spacing={4} style={{ justifyContent: 'Center', marginTop: "5rem" }}>
+        {<img src = {EnergySavingTipsPicture} className = 'EnergySavingTipsPicture' alt="EnergySavingTipsPicture" ></img>}
+            <Grid container spacing={4} style={{ justifyContent: 'Center', marginTop: "1rem", marginBottom: "2rem" }}>
                 <Grid item xs={12} md={2.4} lg={2} >
                     <Card sx={{ maxWidth: 345, height: '600px' }}>
                         <CardMedia component="img" alt="Heating your Home" height="150" image={EnergySavingTipsPic1} />
@@ -38,7 +38,12 @@ export const EnergySavingTips = () => {
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">Pairing your Heat Pump with a High Efficiency Furnace</Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Unless your home has been built with thick interior and exterior insulation and has been professionally air sealed, it is wise to ensure your home has a source of natural gas heating for those very cold winter days and nights.
+                                Unless your home has been built with thick interior and exterior insulation and has been professionally air sealed, it is wise to ensure your 
+                                home has a source of natural gas heating for those very cold winter days and nights. 
+                                Natural gas heating systems, while traditional, are known for their ability to provide consistent and powerful heating quickly, 
+                                which can be crucial during extreme cold snaps. They also tend to have lower operational costs in many areas compared to standalone furnaces
+                                when paired with a heatpump, depending on local gas prices. 
+                                
                             </Typography>
                         </CardContent>
                     </Card>
@@ -49,8 +54,11 @@ export const EnergySavingTips = () => {
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">Pairing your Heat Pump with a Solar Photovoltaic System</Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Installing a solar PV system along with your heat pump will allow you to generate electricity credits that you can use in the winter to offset the cost of heating your home with an air-source heat pump.
-                                This will allow you to operate your heat pump at lower exterior temperatures and at a lower cost.
+                                Installing a solar PV system along with your heat pump will allow you to generate electricity credits that you can use in the winter to offset 
+                                the cost of heating your home with an air-source heat pump.
+                                This will allow you to operate your heat pump at lower exterior temperatures and at a lower cost. Furthermore, by leveraging solar power, 
+                                you're tapping into a renewable energy source that reduces your dependency on the grid and minimizes your carbon footprint. 
+                                In addition to long-term savings on utility bills, this setup may qualify you for various government incentives.
                             </Typography>
                         </CardContent>
                     </Card>
