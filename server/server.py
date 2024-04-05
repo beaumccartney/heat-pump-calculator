@@ -73,18 +73,17 @@ def recalc(inputs: InputSchema):
     input_sheet = excelsheet_handle.sheets['User Inputs']
 
     for (cell, input) in (
-        ('G2', 'buildYear',                  ),
-        ('G4', 'sizeOfHome',                 ),
-        ('G5', 'existingFurnaceEfficiency',  ),
-        ('G6', 'heatPumpSelector',           ),
-        ('N3', 'HEFUpgradeEstimate',         ),
-        ('N4', 'heatPumpHEFInstallEstimate', ),
-        ('N5', 'solarPVInstallEstimate',     ),
-        ('N6', 'costOfNaturalGas',           ),
-        ('N7', 'costOfElectricity',          ),
+        ('G2', inputs.buildYear,                  ),
+        ('G4', inputs.sizeOfHome,                 ),
+        ('G5', inputs.existingFurnaceEfficiency,  ),
+        ('G6', inputs.heatPumpSelector,           ),
+        ('N3', inputs.HEFUpgradeEstimate,         ),
+        ('N4', inputs.heatPumpHEFInstallEstimate, ),
+        ('N5', inputs.solarPVInstallEstimate,     ),
+        ('N6', inputs.costOfNaturalGas,           ),
+        ('N7', inputs.costOfElectricity,          ),
     ):
-        input_value = getattr(inputs, input)
-        input_sheet[cell].value = input_value
+        input_sheet[cell].value = input
 
     excelsheet_handle.app.calculate()
 
