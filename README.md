@@ -46,7 +46,7 @@ just install # `just i` works too!
 just server-launch # `just server` works
 ```
 
-This the api server on `localhost:3001`
+This starts the api server on `localhost:3001`
 
 
 ### Client
