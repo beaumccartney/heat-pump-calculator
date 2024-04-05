@@ -1,5 +1,6 @@
 # api dependencies
 from fastapi import FastAPI, HTTPException, Response
+from fastapi.middleware.cors import CORSMiddleware
 
 # input validation dependencies
 from pydantic import BaseModel, Field
@@ -22,6 +23,29 @@ class InputSchema(BaseModel):
     costOfElectricity         : Literal["High", "Current", "Low"] = "Current"
 
 api = FastAPI()
+
+# NOTE(beau): adjust these for your development/deployment enviroments
+origins = [
+    "http://localhost:3000",
+    "*", # XXX(beau): remove in production
+]
+methods = [
+    "POST", # required
+    "*", # XXX(beau): remove in production
+]
+headers = [
+    "Content-Type", # required
+    "*", # XXX(beau): remove in production
+]
+
+# set CORS policy
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allows all origins
+    allow_credentials=True,
+    allow_methods=methods,  # Allows all methods
+    allow_headers=headers,  # Allows all headers
+)
 
 @api.post("/api/calc")
 def calculate(input: InputSchema):
