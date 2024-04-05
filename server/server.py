@@ -1,3 +1,15 @@
+"""
+server.py
+
+This file defines an API route to calculate the heat pump figures. The route
+takes a a json object with inputs to the calc as input, and returns a csv
+representation of the excel sheet's output table.
+
+Pydantic is used to validate the input json object, ensuring that only the excel
+sheet's defined valid inputs are passed to the calculation.
+"""
+
+
 # api dependencies
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,6 +23,12 @@ import xlwings
 from io import StringIO
 import csv
 
+"""
+input schema - specifies the possible input fields of the input json passed to
+/calc, and their validation rules. I.e., the set of possible inputs to /calc is
+entirely specified by this schema. Please refer to the Pydantic documentation
+for more information.
+"""
 class InputSchema(BaseModel):
     buildYear                 : Literal["<1949", "1950-1959", "1960-1981", "1982-1990", "1991-1997", "1998-2006", "2007-2014", "2015-present"]
     sizeOfHome                : int = Field(gt=0)
@@ -49,6 +67,11 @@ api.add_middleware(
 
 @api.post("/api/calc")
 def calculate(input: InputSchema):
+    """
+    definition of the /calc route
+    this route takes a json input defined by the input_schema, and returns a csv
+    representation of the excel sheet's output table.
+    """
     calculated = recalc(input)
     output = StringIO()
 
@@ -61,13 +84,13 @@ def calculate(input: InputSchema):
 
     return response
 
-# does the actual calculation of the heat pump properties for a given scenario
-# - opens the calculation excel in microsoft excel
-# - reads in an input json (defined in routes/appRoutes.js) from stdin.
-# - pulls the inputs from the json and passes them to the excell sheet
-# - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
-# - returns a handle to the output sheet of the calculation excel
 def recalc(inputs: InputSchema):
+    """
+    does the actual calculation of the heat pump properties for a given scenario
+    - passes inputs to the excel sheet
+    - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
+    - returns a nested list representation of the sheet's output table
+    """
     excelsheet_handle = xlwings.Book('data/ASHP Calculator - U of C.xlsm')
 
     input_sheet = excelsheet_handle.sheets['User Inputs']
