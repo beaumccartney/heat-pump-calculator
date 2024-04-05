@@ -11,18 +11,13 @@
 - (optional) [`just`](https://github.com/casey/just) for task running
     - task runner for the project, simplifies things that are repeated e.g. installs or server runs
 
-### Requirements Installation
+### Installation Instructions
 
-Installation instructions for Node and npm can be found [here](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
-
-
-Installation instructions for Python can be found [here](https://www.python.org/downloads/)
-
-
-Installation instructions for Poetry can be found [here](https://python-poetry.org/docs/#installation)
-
-
-Installation instructions for `just` can be found [here](https://github.com/casey/just?tab=readme-ov-file#installation). Basic usage can be found [here](https://github.com/casey/just?tab=readme-ov-file#quick-start).
+- [Node.js](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
+- [Python](https://www.python.org/downloads/)
+- [Poetry](https://python-poetry.org/docs/#installation)
+- [`just`](https://github.com/casey/just?tab=readme-ov-file#installation)
+    - [Quick start instructions](https://github.com/casey/just?tab=readme-ov-file#quick-start).
 
 
 Documentation for each of these can be found on the same site as the installs.
