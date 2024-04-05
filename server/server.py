@@ -11,7 +11,7 @@ sheet's defined valid inputs are passed to the calculation.
 
 
 # api dependencies
-from fastapi import FastAPI, HTTPException, Response
+from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 # input validation dependencies
