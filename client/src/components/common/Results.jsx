@@ -26,7 +26,7 @@ function Results() {
   const Results = {
     "Existing Heating/Cooling System": {
       desc: "Your Current Heating/Cooling System",
-      cost: '$0',
+      cost: 'N/A',
       breakdown: [h1_2, h1_3, h1_4],
       details: "Heating, Ventilation, and Air Conditioning (HVAC) systems are essential for maintaining comfortable temperatures and good air quality in homes and buildings. They consist of heating units like furnaces or heat pumps that warm up the space, cooling units like air conditioners that keep the environment cool, and ventilation systems that ensure fresh air circulation, removing stale air and maintaining healthy indoor air quality. These systems are controlled by thermostats, which allow users to set their desired temperature. Modern HVAC systems can be integrated, combining heating, cooling, and ventilation for efficient operation, and often include smart technology for better control and energy savings. Essentially, HVAC systems make our living and working environments more comfortable, regardless of the outdoor weather conditions."
     },
@@ -101,26 +101,26 @@ function Results() {
         console.log('Api Response: ', results1);
         console.log(results1.data[4][1]);
         console.log(typeof results1.data[4][4]);
-        setH1_1Data('$'+parseFloat(results1.data[2][1]));//dont chnage
-        setH1_2Data('$'+ parseFloat(results1.data[2][4]).toFixed(0));
-        setH1_3Data(parseFloat(results1.data[2][5]).toFixed(0));
-        setH1_4Data(parseFloat(results1.data[2][6]).toFixed(0));
+        setH1_1Data('$'+parseFloat(results1.data[1][1]));//dont chnage
+        setH1_2Data('$'+ parseFloat(results1.data[1][4]).toFixed(0));
+        setH1_3Data(parseFloat(results1.data[1][5]).toFixed(0));
+        setH1_4Data(parseFloat(results1.data[1][6]).toFixed(1));
 
         //Api call for 2nd heat pump
         const results2 = Papa.parse(response2.data);
-        setH2_1Data('$'+parseFloat(results2.data[4][1]));//dont chnage
-        setH2_2Data('$'+ parseFloat(results2.data[4][4]).toFixed(0));
-        setH2_3Data(parseFloat(results2.data[4][5]).toFixed(0));
-        setH2_4Data(parseFloat(results2.data[4][6]).toFixed(0));
+        setH2_1Data('$'+parseFloat(results2.data[2][1]));//dont chnage
+        setH2_2Data('$'+ parseFloat(results2.data[2][4]).toFixed(0));
+        setH2_3Data(parseFloat(results2.data[2][5]).toFixed(0));
+        setH2_4Data(parseFloat(results2.data[2][6]).toFixed(1));
         //console.log('Api Response: ', results2);
 
         //Api call for 3rd heat pump
         const results3 = Papa.parse(response3.data);
         //console.log('Api Response: ', results3);
-        setH3_1Data('$'+parseFloat(results3.data[6][1]));//dont chnage
-        setH3_2Data('$'+ parseFloat(results3.data[6][4]).toFixed(0));
-        setH3_3Data(parseFloat(results3.data[6][5]).toFixed(0));
-        setH3_4Data(parseFloat(results3.data[6][6]).toFixed(0));
+        setH3_1Data('$'+parseFloat(results3.data[5][1]));//dont chnage
+        setH3_2Data('$'+ parseFloat(results3.data[5][4]).toFixed(0));
+        setH3_3Data(parseFloat(results3.data[5][5]).toFixed(0));
+        setH3_4Data(parseFloat(results3.data[5][6]).toFixed(1));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -158,7 +158,7 @@ function Results() {
               <div className="content-title">{val}</div>
               <div className="content-desc">{Results[val].desc}</div>
               <div className="content-cost">
-                <div className="cost-desc">Average annual cost</div>
+                <div className="cost-desc">Upfront Investment</div>
                 <div className="cost-amt">{Results[val].cost}</div>
               </div>
               <div className="cost-breakdown">
