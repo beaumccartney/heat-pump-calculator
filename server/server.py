@@ -1,7 +1,12 @@
-import xlwings
+# api dependencies
 from fastapi import FastAPI, HTTPException, Response
+
+# input validation dependencies
 from pydantic import BaseModel, Field
 from typing import Literal
+
+# dependencies for working with excel
+import xlwings
 from io import StringIO
 import csv
 
