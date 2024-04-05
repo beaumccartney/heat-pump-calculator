@@ -277,7 +277,7 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                         backgroundColor: '#1976d2', 
                         borderRadius: '50%', 
                         padding: '15px', 
-                        transform: 'translateX(2px)', 
+                        transform: 'translateX(2px)',
                        
                        
                     }}
@@ -294,8 +294,9 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                     handleNext={handleNext}
                     handleBack={handleBack}
                     />
-                    {activeStep === steps.length && (
+                    {activeStep && activeStep === steps.length && (
                         history.push({
+                          
                             pathname: `/results?buildYear=${selectedHomeYear}&sizeOfHome=${parseHomeSize(selectedHomeType)}&existingFurnaceEfficiency=${String(selectedEfficiency).replace("%", "")}`,
                             state: { selectedHomeType, selectedHomeYear, selectedEfficiency }
                           })
