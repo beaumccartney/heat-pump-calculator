@@ -10,6 +10,7 @@
     - this app was developed on python 3.12.2 and poetry 1.8.2
 - (optional) [`just`](https://github.com/casey/just) for task running
     - task runner for the project, simplifies things that are repeated e.g. installs or server runs
+    - Like make but a lot nicer, [here's some basics](https://github.com/casey/just?tab=readme-ov-file#quick-start).
 
 ### Installation Instructions
 
@@ -17,7 +18,6 @@
 - [Python](https://www.python.org/downloads/)
 - [Poetry](https://python-poetry.org/docs/#installation)
 - [`just`](https://github.com/casey/just?tab=readme-ov-file#installation)
-    - [Quick start instructions](https://github.com/casey/just?tab=readme-ov-file#quick-start).
 
 
 Documentation for each of these can be found on the same site as the installs.
@@ -35,6 +35,7 @@ For usage without just, read the [`justfile`](./justfile). It strongly resembles
 
 ```bash
 just install # `just i` works too!
+
 ```
 
 ## Start the application
