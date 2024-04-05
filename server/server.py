@@ -91,7 +91,8 @@ def recalc(inputs: InputSchema):
     - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
     - returns a nested list representation of the sheet's output table
     """
-    excelsheet_handle = xlwings.Book('data/ASHP Calculator - U of C.xlsm')
+
+    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
 
     input_sheet = excelsheet_handle.sheets['User Inputs']
 
