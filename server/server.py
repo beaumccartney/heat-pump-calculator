@@ -88,4 +88,6 @@ def recalc(inputs: InputSchema):
     excelsheet_handle.app.calculate()
 
     output_sheet = excelsheet_handle.sheets['Outputs']
-    return output_sheet.range('D2:J9').value
+
+    output_table = output_sheet.range('D2:J9').value
+    return output_table
