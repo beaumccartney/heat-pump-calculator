@@ -1,4 +1,6 @@
-alias i := install
+alias i      := install
+alias server := server-launch
+alias client := client-launch
 
 server-launch:
     cd server && poetry run uvicorn server:api --port 3001 --reload
