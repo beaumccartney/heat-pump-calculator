@@ -39,7 +39,7 @@ just install # `just i` works too!
 
 ## Start the application
 
-Server:
+### Server
 ```bash
 # in a new terminal
 
@@ -49,7 +49,7 @@ just server-launch # `just server` works
 This the api server on `localhost:3001`
 
 
-Client:
+### Client
 ```bash
 # in a new terminal
 
