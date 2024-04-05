@@ -1,50 +1,64 @@
-# HEAT PUMP CALCULATOR
+# Heat Pump Calculator
 
-## Set up environment
+## Requirements
 
-```bash
-# from root dir of repo
-cd client/ ; npm install
-cd ../server/ ; npm install
-```
-```bash
-# from root dir of repo
-cd client/ ; npm install html2canvas jspdf
-cd ../server/ ; npm install html2canvas jspdf
-```
+- [Node.js](https://nodejs.org/en/about) and npm for the frontend, plus the packages managed by npm
+    - this app was developed on node 21.7.1 and npm 10.5.0
+    - note that node installations typically come with npm
+- [Python](https://www.python.org/about/) and [Poetry](https://python-poetry.org/) for the backend, plus the packages managed by `poetry`
+    - Poetry is a package manager and dependency resolver for python
+    - this app was developed on python 3.12.2 and poetry 1.8.2
+- (optional) [`just`](https://github.com/casey/just) for task running
+    - task runner for the project, simplifies things that are repeated e.g. installs or server runs
 
-## Run the application
+### Requirements Installation
 
-### Using provided script
+Installation instructions for Node and npm can be found [here](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 
-Use the start script provided:
 
-```bash
-# from the root of the project
-./start.sh
-```
+Installation instructions for Python can be found [here](https://www.python.org/downloads/)
 
-Easiest way I know of to kill the client and server is `killall`:
 
-```bash
-killall node # IF YOU HAVE OTHER NODE PROCESSES THIS WILL KILL THEM TOO
-```
+Installation instructions for Poetry can be found [here](https://python-poetry.org/docs/#installation)
 
-### Manually
 
-Either two terminals or good shell-fu is needed cause there's two separate
-applications. Start both terminals in the root of the repo.
+Installation instructions for `just` can be found [here](https://github.com/casey/just?tab=readme-ov-file#installation). Basic usage can be found [here](https://github.com/casey/just?tab=readme-ov-file#quick-start).
 
-```bash
-# Terminal 1
-cd server/
-npm start
-```
+
+Documentation for each of these can be found on the same site as the installs.
+
+
+I (Beau) *highly recommend* using a package manager to install all of these,
+or `nvm` if you deal with different node versions
+
+## Setup
+
+Each of the below instructions assumes you're in a terminal in the root of the project.
+For usage without just, read the [`justfile`](./justfile). It strongly resembles a `Makefile`.
+
+### Install dependencies
 
 ```bash
-# Terminal 2
-cd client/
-npm start
+just install # `just i` works too!
 ```
 
-Close the processes as you normally would.
+## Start the application
+
+Server:
+```bash
+# in a new terminal
+
+just server-launch # `just server` works
+```
+
+This the api server on `localhost:3001`
+
+
+Client:
+```bash
+# in a new terminal
+
+just client-launch # `just client works`
+```
+
+This starts the react server on `localhost:3000`
