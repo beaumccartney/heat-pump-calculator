@@ -56,7 +56,7 @@ function Results() {
       try {
         const queryParams = new URLSearchParams(location.search);
         const sizeOfHome = parseInt(queryParams.get('sizeOfHome'));
-        const buildYear = queryParams.get('buildYear');
+        const buildYear = queryParams.get('buildYear').toLowerCase();
 
         const inputEfficiency = queryParams.get('existingFurnaceEfficiency');
 
