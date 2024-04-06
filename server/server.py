@@ -43,6 +43,7 @@ class InputSchema(BaseModel):
 api = FastAPI()
 
 # NOTE(beau): adjust these for your development/deployment enviroments
+# I've left universal access open for development purposes
 origins = [
     "http://localhost:3000",
     "*", # XXX(beau): remove in production
@@ -59,10 +60,10 @@ headers = [
 # set CORS policy
 api.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allows all origins
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=methods,  # Allows all methods
-    allow_headers=headers,  # Allows all headers
+    allow_methods=methods,
+    allow_headers=headers,
 )
 
 @api.post("/api/calc")
