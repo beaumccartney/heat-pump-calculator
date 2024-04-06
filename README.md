@@ -15,13 +15,11 @@
 
 ### Installation Instructions
 
+Official installation instructions:
 - [Node.js](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
 - [Python](https://www.python.org/downloads/)
 - [Poetry](https://python-poetry.org/docs/#installation)
 - [`just`](https://github.com/casey/just?tab=readme-ov-file#installation)
-
-
-Documentation for each of these can be found on the same site as the installs.
 
 
 I (Beau) *highly recommend* using a package manager to install all of these. I
@@ -32,6 +30,7 @@ windows.
 Below are some commands to install `just` and Poetry for common package
 managers. If you're on linux you know what package manager you're on and how to
 find the requisite packages.
+
 
 Poetry:
 ```bash
