@@ -28,6 +28,9 @@ or `nvm` if you deal with different node versions
 
 ## Setup
 
+Please ensure all of the [requirements](#Requirements) are installed, and
+available on `$PATH`
+
 Each of the below instructions assumes you're in a terminal in the root of the project.
 For usage without just, read the [`justfile`](./justfile). It strongly resembles a `Makefile`.
 
