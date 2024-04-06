@@ -57,7 +57,11 @@ function Results() {
         const queryParams = new URLSearchParams(location.search);
         const sizeOfHome = parseInt(queryParams.get('sizeOfHome'));
         const buildYear = queryParams.get('buildYear');
-        const existingFurnaceEfficiency = parseFloat(queryParams.get('existingFurnaceEfficiency')) / 100;
+        console.log("efficiency", queryParams.get('existingFurnaceEfficiency'));
+
+        const inputEfficiency = queryParams.get('existingFurnaceEfficiency');
+        const existingFurnaceEfficiency = typeof inputEfficiency === 'string' // if the user input "I don't know" don't attempt to parse the floast
+          ? inputEfficiency : parseFloat(inputEfficiency) / 100;
 
         console.log(sizeOfHome, buildYear, existingFurnaceEfficiency)
         const inputs1 = {
