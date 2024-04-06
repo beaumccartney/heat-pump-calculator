@@ -67,7 +67,7 @@ port install just
 ## Setup
 
 Please ensure all of the [requirements](#Requirements) are installed, and
-available on `$PATH`
+available on `$PATH`. The [installation instructions](#Installation-Instructions) may be helpful.
 
 Each of the below instructions assumes you're in a terminal in the root of the
 project. For usage without `just`, read the [`justfile`](./justfile). It
