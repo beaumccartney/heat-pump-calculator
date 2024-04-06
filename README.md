@@ -32,7 +32,7 @@ managers. If you're on linux you know what package manager you're on and how to
 find the requisite packages.
 
 
-Poetry:
+#### Poetry:
 ```bash
 # windows + scoop
 scoop install main/poetry
@@ -46,7 +46,7 @@ port install poetry
 # not available on chocolatey or winget :(
 ```
 
-Just:
+#### Just:
 ```bash
 # windows + scoop
 scoop install main/just
