@@ -5,9 +5,10 @@
 - [Node.js](https://nodejs.org/en/about) and npm for the frontend, plus the packages managed by npm
     - this app was developed on node 21.7.1 and npm 10.5.0
     - note that node installations typically come with npm
-- [Python](https://www.python.org/about/) and [Poetry](https://python-poetry.org/) for the backend, plus the packages managed by `poetry`
-    - Poetry is a package manager and dependency resolver for python
+- [Python](https://www.python.org/about/)
     - this app was developed on python 3.12.2 and poetry 1.8.2
+- [Poetry](https://python-poetry.org/) for the backend, plus the packages it manages
+    - manages python package dependencies
 - (optional) [`just`](https://github.com/casey/just) for task running
     - task runner for the project, simplifies things that are repeated e.g. installs or server runs
     - Like make but a lot nicer, [here's some basics](https://github.com/casey/just?tab=readme-ov-file#quick-start).
