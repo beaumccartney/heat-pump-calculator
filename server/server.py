@@ -75,11 +75,7 @@ def calculate(input: InputSchema):
     representation of the excel sheet's output table.
     """
 
-    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
-    input_sheet = excelsheet_handle.sheets['User Inputs']
-    output_sheet = excelsheet_handle.sheets['Outputs']
-
-    calculated = recalc(input, excelsheet_handle, input_sheet, output_sheet)
+    calculated = recalc(input)
     output = StringIO()
 
     csv_writer = csv.writer(output)
@@ -91,13 +87,17 @@ def calculate(input: InputSchema):
 
     return response
 
-def recalc(inputs: InputSchema, excel, input_sheet, output_sheet):
+def recalc(inputs: InputSchema):
     """
     does the actual calculation of the heat pump properties for a given scenario
     - passes inputs to the excel sheet
     - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
     - returns a nested list representation of the sheet's output table
     """
+
+    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
+    input_sheet = excelsheet_handle.sheets['User Inputs']
+
     for (cell, input) in (
         ('G2', inputs.buildYear,                  ),
         ('G4', inputs.sizeOfHome,                 ),
@@ -111,7 +111,8 @@ def recalc(inputs: InputSchema, excel, input_sheet, output_sheet):
     ):
         input_sheet[cell].value = input
 
-    excel.app.calculate()
+    excelsheet_handle.app.calculate()
 
+    output_sheet = excelsheet_handle.sheets['Outputs']
     output_table = output_sheet.range('D2:J9').value
     return output_table
