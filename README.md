@@ -24,8 +24,46 @@
 Documentation for each of these can be found on the same site as the installs.
 
 
-I (Beau) *highly recommend* using a package manager to install all of these,
-or `nvm` if you deal with different node versions
+I (Beau) *highly recommend* using a package manager to install all of these. I
+prefer [homebrew](https://brew.sh/) on macos and [scoop](https://scoop.sh/) on
+windows.
+
+
+Below are some commands to install `just` and Poetry for common package
+managers. If you're on linux you know what package manager you're on and how to
+find the requisite packages.
+
+Poetry:
+```bash
+# windows + scoop
+scoop install main/poetry
+
+# macos + brew
+brew install poetry
+
+# macos + macports
+port install poetry
+
+# not available on chocolatey or winget :(
+```
+
+Just:
+```bash
+# windows + scoop
+scoop install main/just
+
+# windows + chocolatey
+choco install just
+
+# windows + winget
+winget install --id Casey.Just --exact
+
+# macos + brew
+brew install just
+
+# macos + macports
+port install just
+```
 
 ## Setup
 
