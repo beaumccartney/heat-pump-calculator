@@ -22,6 +22,19 @@ from typing import Literal
 import xlwings
 from io import StringIO
 import csv
+import sys
+
+excelsheet_handle = None
+input_sheet = None
+output_sheet = None
+
+try:
+    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
+    input_sheet = excelsheet_handle.sheets['User Inputs']
+    output_sheet = excelsheet_handle.sheets['Outputs']
+except Exception as e:
+    print(f"Error opening excel sheet: {e}.\n\nPlease fix the error and restart the server")
+    sys.exit(1)
 
 """
 input schema - specifies the possible input fields of the input json passed to
@@ -93,10 +106,6 @@ def recalc(inputs: InputSchema):
     - returns a nested list representation of the sheet's output table
     """
 
-    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
-
-    input_sheet = excelsheet_handle.sheets['User Inputs']
-
     for (cell, input) in (
         ('G2', inputs.buildYear,                  ),
         ('G4', inputs.sizeOfHome,                 ),
@@ -111,8 +120,6 @@ def recalc(inputs: InputSchema):
         input_sheet[cell].value = input
 
     excelsheet_handle.app.calculate()
-
-    output_sheet = excelsheet_handle.sheets['Outputs']
 
     output_table = output_sheet.range('D2:J9').value
     return output_table
