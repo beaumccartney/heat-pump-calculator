@@ -11,7 +11,7 @@
     - manages python package dependencies
 - (optional) [`just`](https://github.com/casey/just) for task running
     - task runner for the project, simplifies things that are repeated e.g. installs or server runs
-    - Like make but a lot nicer, [here's some basics](https://github.com/casey/just?tab=readme-ov-file#quick-start).
+    - Like `make` but a lot nicer, [here's some basics](https://github.com/casey/just?tab=readme-ov-file#quick-start).
 
 ### Installation Instructions
 
