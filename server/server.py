@@ -24,18 +24,6 @@ from io import StringIO
 import csv
 import sys
 
-excelsheet_handle = None
-input_sheet = None
-output_sheet = None
-
-try:
-    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
-    input_sheet = excelsheet_handle.sheets['User Inputs']
-    output_sheet = excelsheet_handle.sheets['Outputs']
-except Exception as e:
-    print(f"Error opening excel sheet: {e}.\n\nPlease fix the error and restart the server")
-    sys.exit(1)
-
 """
 input schema - specifies the possible input fields of the input json passed to
 /calc, and their validation rules. I.e., the set of possible inputs to /calc is
@@ -86,7 +74,12 @@ def calculate(input: InputSchema):
     this route takes a json input defined by the input_schema, and returns a csv
     representation of the excel sheet's output table.
     """
-    calculated = recalc(input)
+
+    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
+    input_sheet = excelsheet_handle.sheets['User Inputs']
+    output_sheet = excelsheet_handle.sheets['Outputs']
+
+    calculated = recalc(input, excelsheet_handle, input_sheet, output_sheet)
     output = StringIO()
 
     csv_writer = csv.writer(output)
@@ -98,14 +91,13 @@ def calculate(input: InputSchema):
 
     return response
 
-def recalc(inputs: InputSchema):
+def recalc(inputs: InputSchema, excel, input_sheet, output_sheet):
     """
     does the actual calculation of the heat pump properties for a given scenario
     - passes inputs to the excel sheet
     - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
     - returns a nested list representation of the sheet's output table
     """
-
     for (cell, input) in (
         ('G2', inputs.buildYear,                  ),
         ('G4', inputs.sizeOfHome,                 ),
@@ -119,7 +111,7 @@ def recalc(inputs: InputSchema):
     ):
         input_sheet[cell].value = input
 
-    excelsheet_handle.app.calculate()
+    excel.app.calculate()
 
     output_table = output_sheet.range('D2:J9').value
     return output_table
