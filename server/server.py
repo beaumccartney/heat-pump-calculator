@@ -85,6 +85,7 @@ def calculate(input: InputSchema):
 
     return response
 
+excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
 def recalc(inputs: InputSchema):
     """
     does the actual calculation of the heat pump properties for a given scenario
@@ -93,7 +94,6 @@ def recalc(inputs: InputSchema):
     - returns a nested list representation of the sheet's output table
     """
 
-    excelsheet_handle = xlwings.Book('ASHP Calculator - U of C.xlsm')
 
     input_sheet = excelsheet_handle.sheets['User Inputs']
 
