@@ -2,6 +2,9 @@ alias i      := install
 alias server := server-launch
 alias client := client-launch
 
+default:
+  @just --list
+
 server-launch:
     cd server && poetry run uvicorn server:api --port 3001 --reload
 
