@@ -60,7 +60,8 @@ function Results() {
         console.log("efficiency", queryParams.get('existingFurnaceEfficiency'));
 
         const inputEfficiency = queryParams.get('existingFurnaceEfficiency');
-        const existingFurnaceEfficiency = typeof inputEfficiency === 'string' // if the user input "I don't know" don't attempt to parse the floast
+
+        const existingFurnaceEfficiency = inputEfficiency === "I don't know" // if the user input "I don't know" don't attempt to parse the floast
           ? inputEfficiency : parseFloat(inputEfficiency) / 100;
 
         console.log(sizeOfHome, buildYear, existingFurnaceEfficiency)
