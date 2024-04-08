@@ -67,11 +67,15 @@ api.add_middleware(
     allow_headers=headers,
 )
 
-@api.post("/api/calc")
-def calculate(input: InputSchema):
+@api.post("/api/calc", response_class=Response, responses={
+    200: {
+        "content": {"text/csv": {}},
+        "description": "Returns a CSV file."
+    }
+})
+def calculate(input: InputSchema) -> Response:
     """
-    definition of the /calc route
-    this route takes a json input defined by the input_schema, and returns a csv
+    Takes a json input defined by the input_schema, and returns a csv
     representation of the excel sheet's output table.
     """
 
@@ -81,11 +85,7 @@ def calculate(input: InputSchema):
     csv_writer = csv.writer(output)
     csv_writer.writerows(calculated)
 
-    response = Response(content=output.getvalue(), media_type="text/csv")
-
-    response.headers["Content-Disposition"] = "attachment; filename=heatpump.csv"
-
-    return response
+    return Response(output.getvalue(), media_type="text/csv")
 
 def recalc(inputs: InputSchema):
     """
