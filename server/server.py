@@ -24,13 +24,13 @@ from io import StringIO
 import csv
 import sys
 
-"""
-input schema - specifies the possible input fields of the input json passed to
-/calc, and their validation rules. I.e., the set of possible inputs to /calc is
-entirely specified by this schema. Please refer to the Pydantic documentation
-for more information.
-"""
 class InputSchema(BaseModel):
+    """
+    input schema - specifies the possible input fields of the input json passed to
+    /calc, and their validation rules. I.e., the set of possible inputs to /calc is
+    entirely specified by this schema. Please refer to the Pydantic documentation
+    for more information.
+    """
     buildYear                 : Literal["<1949", "1950-1959", "1960-1981", "1982-1990", "1991-1997", "1998-2006", "2007-2014", "2015-present"]
     sizeOfHome                : int = Field(gt=0)
     existingFurnaceEfficiency : Literal["I don't know", 0.8, 0.92, 0.97] = "I don't know"
