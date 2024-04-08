@@ -13,6 +13,7 @@ sheet's defined valid inputs are passed to the calculation.
 # api dependencies
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
 # input validation dependencies
 from pydantic import BaseModel, Field
@@ -41,7 +42,16 @@ class InputSchema(BaseModel):
     costOfNaturalGas          : Literal["High", "Current", "Low"] = "Current"
     costOfElectricity         : Literal["High", "Current", "Low"] = "Current"
 
-api = FastAPI()
+app: xlwings.App
+@asynccontextmanager
+async def lifespan(api: FastAPI):
+    global app
+    app = xlwings.App()
+    yield
+    app.quit()
+
+
+api = FastAPI(lifespan=lifespan)
 
 # NOTE(beau): adjust these for your development/deployment enviroments
 # I've left universal access open for development purposes
@@ -86,8 +96,6 @@ def calculate(input: InputSchema) -> Response:
     csv_writer.writerows(calculated)
 
     return Response(output.getvalue(), media_type="text/csv")
-
-app = xlwings.App()
 
 def recalc(inputs: InputSchema):
     """
