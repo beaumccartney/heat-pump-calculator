@@ -42,13 +42,12 @@ class InputSchema(BaseModel):
     costOfNaturalGas          : Literal["High", "Current", "Low"] = "Current"
     costOfElectricity         : Literal["High", "Current", "Low"] = "Current"
 
-app: xlwings.App
+book: xlwings.Book
 @asynccontextmanager
 async def lifespan(api: FastAPI):
-    global app
-    app = xlwings.App()
+    global book
+    book = xlwings.Book('ASHP Calculator - U of C.xlsm')
     yield
-    app.quit()
 
 
 api = FastAPI(lifespan=lifespan)
@@ -105,8 +104,8 @@ def recalc(inputs: InputSchema):
     - returns a nested list representation of the sheet's output table
     """
 
-    excelsheet_handle = app.books.open('ASHP Calculator - U of C.xlsm')
-    input_sheet = excelsheet_handle.sheets['User Inputs']
+    global book
+    input_sheet = book.sheets['User Inputs']
 
     for (cell, input) in (
         ('G2', inputs.buildYear,                  ),
@@ -121,8 +120,8 @@ def recalc(inputs: InputSchema):
     ):
         input_sheet[cell].value = input
 
-    excelsheet_handle.app.calculate()
+    book.app.calculate()
 
-    output_sheet = excelsheet_handle.sheets['Outputs']
+    output_sheet = book.sheets['Outputs']
     output_table = output_sheet.range('D2:J9').value
     return output_table
