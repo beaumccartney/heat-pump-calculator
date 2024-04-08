@@ -258,6 +258,13 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
         }
         return 0; 
       };
+    
+    useEffect(() => {
+        if (activeStep === steps.length && selectedHomeYear && selectedHomeType && selectedEfficiency) {
+          const queryString = `buildYear=${encodeURIComponent(selectedHomeYear)}&sizeOfHome=${encodeURIComponent(parseHomeSize(selectedHomeType))}&existingFurnaceEfficiency=${encodeURIComponent(String(selectedEfficiency).replace("%", ""))}`;
+          history.push(`/results?${queryString}`, { selectedHomeType, selectedHomeYear, selectedEfficiency });
+        }
+      }, [activeStep, steps.length, selectedHomeYear, selectedHomeType, selectedEfficiency, history]);
 
     return (
         <div className="home-type-selection">
@@ -294,14 +301,6 @@ function CustomizedStepper({ activeStep, steps, handleNext, handleBack }) {
                     handleNext={handleNext}
                     handleBack={handleBack}
                     />
-                    {activeStep && activeStep === steps.length && (
-                        history.push({
-                          
-                            pathname: `/results?buildYear=${selectedHomeYear}&sizeOfHome=${parseHomeSize(selectedHomeType)}&existingFurnaceEfficiency=${String(selectedEfficiency).replace("%", "")}`,
-                            state: { selectedHomeType, selectedHomeYear, selectedEfficiency }
-                          })
-                          
-                    )}
                 </Box>
                 <div className="content">  
                     {activeStep === 0 && (
