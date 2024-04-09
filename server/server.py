@@ -13,7 +13,6 @@ sheet's defined valid inputs are passed to the calculation.
 # api dependencies
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
 
 # input validation dependencies
 from pydantic import BaseModel, Field
@@ -24,6 +23,9 @@ import xlwings
 from io import StringIO
 import csv
 import sys
+
+# debugging
+from icecream import ic
 
 class InputSchema(BaseModel):
     """
@@ -89,17 +91,7 @@ class Excel_Manager:
         output_table = self.output_sheet.range('D2:J9').value
         return output_table
 
-excel: Excel_Manager
-
-# initialize the excel manager startup
-@asynccontextmanager
-async def lifespan(api: FastAPI):
-    global excel
-    excel = Excel_Manager('ASHP Calculator - U of C.xlsm', 'User Inputs', 'Outputs')
-    yield
-
-
-api = FastAPI(lifespan=lifespan)
+api = FastAPI()
 
 # NOTE(beau): adjust these for your development/deployment enviroments
 # I've left universal access open for development purposes
@@ -137,7 +129,7 @@ def calculate(input: InputSchema) -> Response:
     representation of the excel sheet's output table.
     """
 
-    global excel
+    excel = Excel_Manager('ASHP Calculator - U of C.xlsm', 'User Inputs', 'Outputs')
     calculated = excel.recalc(input)
     output = StringIO()
 
