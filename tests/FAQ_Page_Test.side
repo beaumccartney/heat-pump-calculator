@@ -1,0 +1,93 @@
+{
+  "id": "7a367dc9-af1f-4d8d-8ecc-e833bd8fca06",
+  "version": "2.0",
+  "name": "FAQ Page",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "026c3bc0-a2a5-4078-bf6a-ff271ba41df4",
+    "name": "FAQ Page Test",
+    "commands": [{
+      "id": "df1186ae-7486-4150-85c9-6ffe88656cdb",
+      "comment": "",
+      "command": "open",
+      "target": "/dashboard",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd95e818-9794-47a8-9920-74ce0f6e2c07",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1032",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "37a6a1be-9b2f-472a-8f9f-f63af42968d1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-info:nth-child(3) > img",
+      "targets": [
+        ["css=.card-info:nth-child(3) > img", "css:finder"],
+        ["xpath=//img[contains(@src,'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATUSURBVHgB7Z1ZqFVVGMf/jWSDWJTQII1YYtAcQdRbE0EFRRO9RIFP5UtUNEAzglBU6IPii6KgiKIoCCoOOCA4Is6zgvOsiPPx+7PvkcvlutcZvjXt8/3g93Tuvefb39pr7bW/tfa+gGEYhmEYhmEYncZ1SI/+4qviYPEJcaB4p9hPvL3rZ06LJ8VD4tYuV4mLxIMwmuYF8W9xrXhZrLXhBnG4+DyMUvqK34jr0V7Cy9wsDhXvgHGVu8RfxaPwl/ieHhf/QIc3BK83X6AYt2uR3C8OEa9Hh/GYuBjxEt/T+eLD6BA+Ek8gneTX5SzqE1QYdvN/kF7iu8sZ11+o4JB0szgBaSe/uxPFm1ARmPyZyCf5dad0xZ417Mo5nfm99YQUqwMNk/qY34h/IlM428kp0WV+jMx4FMXdZk5JLpPH8iAygWNmSjdZWi5AJtPTL5FXYpvxc3im3Ss+C2ubxLvhB1ZKJ6E4GzeiKOBxqviAeL/4hvi++Aj8wNoR1yNOIVF+g58zb7f4Lho/Qd4Tt3mK5RckCuv5PkrK49Ba2fgWcZSHeA6LtyFBuJiifbCj0f6Fz0ev/BoJor2SxfKF1qxD+258LRKDa7iaB3hEvA96cAjbDt0Yn4IHWj3jtOvoXC7cCz04a/kduiS1dsAuqXVmHYOftVqWl3dBL85VSATu22l360h3RzfwnZyLT0PRWHS2+GIDv/efYpyXUNz3ROcD6I6tHzq+bwB6X8g/A/e4/LZinPQdKNPKNWAwdFnh+Pxb9H6n3Uf8zvG7m6DLk1CmlQZ4HLoccHxe1kPeRDn7ocsgKHMjmmcgdGmnzuI6gWrQhdedG1BcD1RopQf4Kry1whLH59onC//eUESGtZFaIrouij97+E7uzI66qesc4iW8uyyFlPVgDq+7PX33LETkPOImvu5bjjg/9fz9nyESKaz9TnPEyPLxHs8x8EGQKNfDfYiXeMp9pgMcMQ4LFMtYRGAz4iS+7hBHfC+JFwPG8zoCMxfhk153HsqXKTn0hD5BWPa+FQEZg/CJp2fhvhMdGSm24QjID4hzkD864uIOCc0qbTNeEJ9DIF4DUAss1x/Kdi7zEVZfc/5GXYNAW9y5G+ISgJAH94ojpvGB47mWXyEQywCEOqh5jlieRbyhp6er0SStrglPRjj+dXz+PdLZ098fgXgI4Yahfo5YjgWKoxFnICBTkc6BpyCXSIO+HuFl5J80LRci0rsppiPfpLUrbwxZC3oaERnUFUhOiWtX7sLmvtgktqiQn+D3gF2EboDknprhytNydE4DJMkz8LdS5iLrBtDqTtw3OQxGVFiIWgnrAVHhlEx7KHKRdQNoX9FZjBoBo2F8FLE4P94CvXmyK8bQw4JqznzMafnk5P/QI+sx2YWvMu49KJ5O6YPqkXwPIHygYjoMJz5vqyfCcOJzJYl7ZbiNsTLvYkPxLENfKOKzB3CBYiWqxS4o47uytxTVYjaU8d0A2g/JxYRr4GOgjO8G2IHqwG2P65AZ/AcMtQo4B5m+U/Re5JXonnKbO5+295b8Vh5TbYYzyA8+hLcTxQWXY77XYacTGyCpN+OGCCa1gllSDdBx/0kiNawBImMNEBlrgMhYA0TGGiAy1gCRsQaIjDVAZKwBDMMwDMMwDMMwAnMFRBlnZ+l57ZoAAAAASUVORK5CYII=')]", "xpath:img"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div[2]/div[2]/div[3]/img", "xpath:idRelative"],
+        ["xpath=//div[3]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1aafe5f4-03f4-4f38-a730-faf269b48e0e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiGrid-root:nth-child(2) > .MuiPaper-root .MuiAccordionSummary-content",
+      "targets": [
+        ["css=.MuiGrid-root:nth-child(2) > .MuiPaper-root .MuiAccordionSummary-content", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div[2]/div[2]/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div[2]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "089b5253-9a27-45ef-8f29-2f7b1c9b30e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.Mui-expanded > .MuiAccordionSummary-content",
+      "targets": [
+        ["css=.Mui-expanded > .MuiAccordionSummary-content", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div[2]/div[2]/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div[2]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c4e0696-234d-41d0-9b8d-f732c9125df4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MuiGrid-root:nth-child(5) .MuiButtonBase-root .MuiTypography-root",
+      "targets": [
+        ["css=.MuiGrid-root:nth-child(5) .MuiButtonBase-root .MuiTypography-root", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div[2]/div[2]/div[5]/div/div/div/h6", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/h6", "xpath:position"],
+        ["xpath=//h6[contains(.,'Can a heat pump be used in conjunction with other heating systems?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61b82030-0d70-4f8e-96e4-80d36ee2f3ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.Mui-expanded > .MuiTypography-root",
+      "targets": [
+        ["css=.Mui-expanded > .MuiTypography-root", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div[2]/div[2]/div[5]/div/div/div/h6", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/h6", "xpath:position"],
+        ["xpath=//h6[contains(.,'Can a heat pump be used in conjunction with other heating systems?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "30d61bd6-0d58-44ca-aa65-72e9cca80f69",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["026c3bc0-a2a5-4078-bf6a-ff271ba41df4"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

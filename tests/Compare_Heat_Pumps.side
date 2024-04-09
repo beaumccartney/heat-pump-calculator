@@ -1,0 +1,82 @@
+{
+  "id": "0934c011-0fa8-4505-b99a-70157d5d6196",
+  "version": "2.0",
+  "name": "Compare Heat Pumps",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "6609e800-b55e-47db-865f-b6e07cbc2a3b",
+    "name": "Compare Heat Pump",
+    "commands": [{
+      "id": "dbf5b71a-c2a7-4f3c-8cf5-8da515d2d7bf",
+      "comment": "",
+      "command": "open",
+      "target": "/dashboard",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "985676e6-21a5-4633-afae-10d9efdc5bb8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1032",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6cbeb822-035c-4ce5-bebe-a64f93cedc5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.info-card-content:nth-child(2)",
+      "targets": [
+        ["css=.info-card-content:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b319ca0-5385-451d-968d-61697a5ee702",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown:nth-child(1)",
+      "targets": [
+        ["css=.dropdown:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "43d66c7e-aaaf-4d49-8ab2-56b73bb203f0",
+      "comment": "",
+      "command": "select",
+      "target": "css=.dropdown:nth-child(1)",
+      "targets": [],
+      "value": "label=BRYANT HEATING AND COOLING SYSTEMS - EVOLUTION V Heat Pump"
+    }, {
+      "id": "f3689d16-6031-484a-9953-c3dc800dafab",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown:nth-child(2)",
+      "targets": [
+        ["css=.dropdown:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div/div/select[2]", "xpath:idRelative"],
+        ["xpath=//select[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b3a5013-5516-43e6-a172-344babcc2c9e",
+      "comment": "",
+      "command": "select",
+      "target": "css=.dropdown:nth-child(2)",
+      "targets": [],
+      "value": "label=BRYANT HEATING AND COOLING SYSTEMS - EVOLUTION V Heat Pump"
+    }]
+  }],
+  "suites": [{
+    "id": "dc0fd70e-53d6-4343-b55a-ffa507adca5c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6609e800-b55e-47db-865f-b6e07cbc2a3b"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

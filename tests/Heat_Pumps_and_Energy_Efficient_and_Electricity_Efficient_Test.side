@@ -1,0 +1,68 @@
+{
+  "id": "2e448905-db1f-447c-b59c-38bf9d314d52",
+  "version": "2.0",
+  "name": "Heat Pumps and Energy Efficient and Electricity Efficient Test",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "2ab186fe-18a9-49a4-acea-d4b8008077b2",
+    "name": "Heat Pumps and Energy Efficient and Electricity Efficient ",
+    "commands": [{
+      "id": "cf34c79c-83be-4755-b92b-b905ddcfb593",
+      "comment": "",
+      "command": "open",
+      "target": "/dashboard",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f5dc0fd-1c72-43b9-b989-4d3d63c2cb0d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6d739ca0-f91f-472d-a1ac-4011d4afc01b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.topHP-tab:nth-child(1)",
+      "targets": [
+        ["css=.topHP-tab:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div[3]/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8faa7d8c-8922-424c-8b50-26f70c04bb7d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.topHP-tab:nth-child(2)",
+      "targets": [
+        ["css=.topHP-tab:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div[3]/div[2]/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13e1346d-c658-4d84-9afa-ce1e3fadc437",
+      "comment": "",
+      "command": "click",
+      "target": "css=.topHP-tab:nth-child(3)",
+      "targets": [
+        ["css=.topHP-tab:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div[3]/div[2]/div/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "693b1c11-3803-4ba2-ade6-5bcda1d17d6d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2ab186fe-18a9-49a4-acea-d4b8008077b2"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}
