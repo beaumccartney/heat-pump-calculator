@@ -42,11 +42,60 @@ class InputSchema(BaseModel):
     costOfNaturalGas          : Literal["High", "Current", "Low"] = "Current"
     costOfElectricity         : Literal["High", "Current", "Low"] = "Current"
 
-book: xlwings.Book
+class Excel_Manager:
+    """
+    This class manages the interaction with the excel sheet. It contains handles
+    to the excel Book input sheet, and output sheet, and provides a method to
+    recalculate the sheet with a given set of inputs.
+    """
+
+    book: xlwings.Book
+    input_sheet: xlwings.Sheet
+    output_sheet: xlwings.Sheet
+
+    def __init__(self, book_name, input_sheet_name, output_sheet_name):
+        """
+        initializes the Excel_Manager with the given book, input sheet, and output sheet
+        The book is a path to the excel file, and the input/output sheets are the names
+        of the corresponding sheets in the excel file.
+        """
+        self.book = xlwings.Book(book_name)
+        self.input_sheet = self.book.sheets[input_sheet_name]
+        self.output_sheet = self.book.sheets[output_sheet_name]
+
+    def recalc(self, inputs: InputSchema):
+        """
+        does the actual calculation of the heat pump properties for a given scenario
+        - passes inputs to the excel sheet
+        - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
+        - returns a nested list representation of the sheet's output table
+        """
+
+        for (cell, input) in (
+            ('G2', inputs.buildYear,                  ),
+            ('G4', inputs.sizeOfHome,                 ),
+            ('G5', inputs.existingFurnaceEfficiency,  ),
+            ('G6', inputs.heatPumpSelector,           ),
+            ('N3', inputs.HEFUpgradeEstimate,         ),
+            ('N4', inputs.heatPumpHEFInstallEstimate, ),
+            ('N5', inputs.solarPVInstallEstimate,     ),
+            ('N6', inputs.costOfNaturalGas,           ),
+            ('N7', inputs.costOfElectricity,          ),
+        ):
+            self.input_sheet[cell].value = input
+
+        self.book.app.calculate()
+
+        output_table = self.output_sheet.range('D2:J9').value
+        return output_table
+
+excel: Excel_Manager
+
+# initialize the excel manager startup
 @asynccontextmanager
 async def lifespan(api: FastAPI):
-    global book
-    book = xlwings.Book('ASHP Calculator - U of C.xlsm')
+    global excel
+    excel = Excel_Manager('ASHP Calculator - U of C.xlsm', 'User Inputs', 'Outputs')
     yield
 
 
@@ -88,40 +137,11 @@ def calculate(input: InputSchema) -> Response:
     representation of the excel sheet's output table.
     """
 
-    calculated = recalc(input)
+    global excel
+    calculated = excel.recalc(input)
     output = StringIO()
 
     csv_writer = csv.writer(output)
     csv_writer.writerows(calculated)
 
     return Response(output.getvalue(), media_type="text/csv")
-
-def recalc(inputs: InputSchema):
-    """
-    does the actual calculation of the heat pump properties for a given scenario
-    - passes inputs to the excel sheet
-    - forces the microsoft excel process to recalculate the sheet (which updates the outputs)
-    - returns a nested list representation of the sheet's output table
-    """
-
-    global book
-    input_sheet = book.sheets['User Inputs']
-
-    for (cell, input) in (
-        ('G2', inputs.buildYear,                  ),
-        ('G4', inputs.sizeOfHome,                 ),
-        ('G5', inputs.existingFurnaceEfficiency,  ),
-        ('G6', inputs.heatPumpSelector,           ),
-        ('N3', inputs.HEFUpgradeEstimate,         ),
-        ('N4', inputs.heatPumpHEFInstallEstimate, ),
-        ('N5', inputs.solarPVInstallEstimate,     ),
-        ('N6', inputs.costOfNaturalGas,           ),
-        ('N7', inputs.costOfElectricity,          ),
-    ):
-        input_sheet[cell].value = input
-
-    book.app.calculate()
-
-    output_sheet = book.sheets['Outputs']
-    output_table = output_sheet.range('D2:J9').value
-    return output_table
