@@ -8,8 +8,7 @@ import PicOne from './One.jpg'
 import EnergySavingTipsPicture from './EnergySavingTipsPicture.jpg' 
 import Container from 'react-bootstrap/esm/Container';
 export const EnergySavingTips = () => {
-//  https://forum.freecodecamp.org/t/centering-bootstrap-cards/489829/3
-// https://react-bootstrap.netlify.app/docs/components/cards#link
+
 
     return (
         
@@ -55,7 +54,7 @@ export const EnergySavingTips = () => {
 
 // </div>    
 <>
-{/* https://reintech.io/blog/creating-a-responsive-card-layout-with-css */}
+{}
 
 <h2 id='Heading'>Energy Saving Tips</h2>
     <p className='ParagraphText'> Welcome to our Energy Saving Tips page! Find quick Energy Saving Tips below.</p>
