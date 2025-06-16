@@ -1,5 +1,7 @@
 # Heat Pump Calculator
 
+You can find an informational poster on the project [here](https://schulich.ucalgary.ca/sites/default/files/teams/4/2024%20Capstone/2024%20Capstone%20Projects/61827-89%20Heat%20Pump%20Calculator.pdf)
+
 ## Requirements
 
 - [Node.js](https://nodejs.org/en/about) and npm for the frontend, plus the packages managed by npm
